@@ -33,5 +33,21 @@ function activateSubmitBtn(e) {
 
 submitBtn.addEventListener('click', submitForm);
 function submitForm() {
-  console.log('....');
+  let formData = { color: 'black' };
+  [].forEach.call(fields, inp => {
+    if (inp.type !== 'checkbox') {
+      formData[inp.getAttribute('name')] = inp.value;
+    }
+  });
+  console.log(formData);
+  fetch('https://p40.laywagif.com/preorders', {
+    method: 'post',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formData)
+  })
+    .then(res => res.json())
+    .then(res => console.log(res));
 }

@@ -43,34 +43,47 @@
             <h3>فضلًا ادخل معلوماتك لإتمام الطلب</h3>
             <div class="form-group">
               <label>الاسم الكامل</label>
-              <input required type="text" pattern=".{6,}" />
+              <input required type="text" name="name" pattern=".{2,255}" />
             </div>
             <div class="form-group">
               <label>رقم الجوال</label>
-              <input required type="tel" pattern="[0-9]{9}" />
+              <input
+                required
+                type="tel"
+                minlength="9"
+                maxlength="15"
+                name="mobile"
+                pattern="[0-9]{9,15}"
+              />
             </div>
             <div class="form-group">
               <label>البريد الالكترونى</label>
               <input
                 required
                 type="email"
+                name="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
               />
             </div>
             <div class="form-group">
               <label>الحى</label>
-              <input required type="text" />
+              <input required type="text" name="city" pattern=".{2,255}" />
             </div>
             <div class="form-group">
               <label>المدينة</label>
-              <input required type="text" />
+              <input required type="text" name="district" pattern=".{2,255}" />
             </div>
           </div>
           <div class="accept-terms">
             <input type="checkbox" id="accept-terms" />
             <label for="accept-terms">
               <span>أنا اوافق على</span>
-              <a href="#">شروط وأحكام الطلب المسبق</a>
+              <a
+                href="https://www.stc.com.sa/wps/wcm/connect/arabic/individual/static/terms-conditions"
+                target="_blank"
+                rel="noopener"
+                >شروط وأحكام الطلب المسبق</a
+              >
             </label>
           </div>
         </form>
@@ -104,6 +117,7 @@
     </div>
     <!-- End FAQs -->
     <div class="stc-footer-component stc-footer--ar-lang"></div>
+
     <script src="https://stc-assets.netlify.com/main.js"></script>
     <script src="/assets/js/renderFAQsList.js"></script>
     <script src="/assets/js/formValidation.js"></script>
