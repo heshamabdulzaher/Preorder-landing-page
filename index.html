@@ -43,23 +43,27 @@
             <h3>فضلًا ادخل معلوماتك لإتمام الطلب</h3>
             <div class="form-group">
               <label>الاسم الكامل</label>
-              <input type="text" />
+              <input required type="text" pattern=".{6,}" />
             </div>
             <div class="form-group">
               <label>رقم الجوال</label>
-              <input type="tel" />
+              <input required type="tel" pattern="[0-9]{9}" />
             </div>
             <div class="form-group">
               <label>البريد الالكترونى</label>
-              <input type="email" />
+              <input
+                required
+                type="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              />
             </div>
             <div class="form-group">
               <label>الحى</label>
-              <input type="text" />
+              <input required type="text" />
             </div>
             <div class="form-group">
               <label>المدينة</label>
-              <input type="text" />
+              <input required type="text" />
             </div>
           </div>
           <div class="accept-terms">
@@ -84,7 +88,7 @@
             </div>
             <p>*السعر يشمل ضريبة القيمة المضافة (VAT)</p>
           </div>
-          <button>اتمام الطلب</button>
+          <button class="submit-btn" disabled>اتمام الطلب</button>
         </div>
       </div>
     </section>
@@ -102,5 +106,6 @@
     <div class="stc-footer-component stc-footer--ar-lang"></div>
     <script src="https://stc-assets.netlify.com/main.js"></script>
     <script src="/assets/js/renderFAQsList.js"></script>
+    <script src="/assets/js/formValidation.js"></script>
   </body>
 </html>

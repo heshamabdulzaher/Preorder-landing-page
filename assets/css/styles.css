@@ -346,7 +346,7 @@ header .lang-switcher {
   transition: all 0.2s ease-in-out;
 }
 .main-form form .form-group input:focus {
-  border: 1px solid #ff375e;
+  border: 1px solid #4f008c;
 }
 .main-form form .accept-terms {
   padding: 40px 0 50px;
@@ -408,6 +408,10 @@ header .lang-switcher {
   color: #fff;
   font-size: 18px;
   margin-top: 40px;
+  cursor: not-allowed;
+}
+.main-form .phone-info button.active {
+  background-color: #ff375e;
   cursor: pointer;
 }
 

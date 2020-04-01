@@ -35,7 +35,7 @@
         border-radius: 2px;
         transition: all 0.2s ease-in-out;
         &:focus {
-          border: 1px solid $S_color;
+          border: 1px solid $mainColor;
         }
       }
     }
@@ -98,7 +98,11 @@
       color: #fff;
       font-size: 18px;
       margin-top: 40px;
-      cursor: pointer;
+      cursor: not-allowed;
+      &.active {
+        background-color: $S_color;
+        cursor: pointer;
+      }
     }
   }
 }
