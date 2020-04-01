@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="main-container flex align-center justify-between">
+        <img src="/assets/img/stc-logo.svg" alt="stc logo" class="logo" />
+        <div class="lang-switcher"><span>English</span></div>
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- Hero banner -->
+    <section class="hero-banner">
+      <div class="main-container flex justify-between">
+        <div class="content">
+          <h5>اطلبه مسبقا الآن</h5>
+          <h1>Huawei P40 Pro 5G</h1>
+          <p>
+            يبدأ الطلب المسبق بتاريخ 5 أبريل الساعة 12 صباحًا
+            <br />
+            وينتهي بتاريخ 14 أبريل الساعة 11:49 مساءًا
+          </p>
+          <div class="actions flex">
+            <button class="btn main-btn">اطلبه الآن</button>
+            <button class="btn outline-btn">اكتشف الجهاز</button>
+          </div>
+        </div>
+        <img src="/assets/img/phone/1.png" alt="smart phones image" />
+      </div>
+    </section>
+    <!-- End Hero banner -->
+    <!-- Main form -->
+    <section class="main-form">
+      <div class="main-container flex">
+        <form>
+          <div class="fields-container flex flex-wrap">
+            <h3>فضلًا ادخل معلوماتك لإتمام الطلب</h3>
+            <div class="form-group">
+              <label>الاسم الكامل</label>
+              <input type="text" />
+            </div>
+            <div class="form-group">
+              <label>رقم الجوال</label>
+              <input type="tel" />
+            </div>
+            <div class="form-group">
+              <label>البريد الالكترونى</label>
+              <input type="email" />
+            </div>
+            <div class="form-group">
+              <label>الحى</label>
+              <input type="text" />
+            </div>
+            <div class="form-group">
+              <label>المدينة</label>
+              <input type="text" />
+            </div>
+          </div>
+          <div class="accept-terms">
+            <input type="checkbox" id="accept-terms" />
+            <label for="accept-terms">
+              <span>أنا اوافق على</span>
+              <a href="#">شروط وأحكام الطلب المسبق</a>
+            </label>
+          </div>
+        </form>
+        <div class="phone-info">
+          <div class="content">
+            <img src="/assets/img/phone/2.png" alt="smart phones image" />
+            <div class="phone-name">Huawei P40 Pro 5G</div>
+            <div class="features">
+              <h4>أسود، 256 جيجابايت</h4>
+              <p>يتضمن هدايا بقيمة 1999 ريال</p>
+            </div>
+            <div class="price">
+              اجمالى السعر
+              <span>3465 ريال</span>
+            </div>
+            <p>*السعر يشمل ضريبة القيمة المضافة (VAT)</p>
+          </div>
+          <button>اتمام الطلب</button>
+        </div>
+      </div>
+    </section>
+    <!-- End Main form -->
+    <!-- FAQs -->
+    <div class="main-container">
+      <section class="FAQs">
+        <h2>الأسئلة الشائعة</h2>
+        <ul class="FAQs-list">
+          <!-- FAQs list items will be generated dynamically, /assets/js/main.js -->
+        </ul>
+      </section>
+    </div>
+    <!-- End FAQs -->
+    <div class="stc-footer-component"></div>
+    <script src="https://stc-assets.netlify.com/main.js"></script>
+    <script src="/assets/js/renderFAQsList.js"></script>
+  </body>
+</html>
