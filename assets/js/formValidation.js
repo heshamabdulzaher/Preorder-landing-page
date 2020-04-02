@@ -3,9 +3,8 @@ const fields = document.querySelectorAll('form input');
 const submitBtn = document.querySelector('.main-form .submit-btn');
 
 fields.forEach(inp => {
-  if (inp.type === 'checkbox') {
-    inp.addEventListener('change', activateSubmitBtn);
-  } else {
+  inp.addEventListener('change', activateSubmitBtn);
+  if (inp.type !== 'checkbox') {
     inp.addEventListener('keyup', activateSubmitBtn);
   }
 });
