@@ -1,6 +1,20 @@
+let submittedData = {};
+const preOrderPhoneSection = document.querySelector('.pre-order-phone-device');
+
+// Let's move to the second step
+function moveToSecondStep() {
+  let selectedColor = document.querySelector('input[type=radio]#black').checked
+    ? 'black'
+    : 'silver';
+  submittedData.color = selectedColor;
+  preOrderPhoneSection.classList.remove('first-step');
+  preOrderPhoneSection.classList.add('second-step');
+}
+
+// On the second step let's begin with validation
 // Get all inputs
 const fields = document.querySelectorAll('#userData .fields-container input');
-const submitBtn = document.querySelector('.pre-order-phone-device .submit-btn');
+const submitBtn = document.querySelector('#submitUserDataBtn');
 const checkbox = document.querySelector('#accept-terms');
 checkbox.addEventListener('change', activateSubmitBtn);
 
@@ -52,34 +66,36 @@ function activateSubmitBtn(e) {
   }
 }
 
-submitBtn.addEventListener('click', submitForm);
-function submitForm() {
-  let formData = { color: 'black' };
+submitBtn.addEventListener('click', submitUserData);
+function submitUserData() {
+  submitBtn.classList.add('btn-spinner');
   [].forEach.call(fields, inp => {
     if (inp.type !== 'checkbox') {
-      formData[inp.getAttribute('name')] = inp.value;
+      submittedData[inp.getAttribute('name')] = inp.value;
     }
   });
-  if (formData.mobile.substr(0, 1) !== '+') {
-    formData.mobile = '+' + formData.mobile;
+  if (submittedData.mobile.substr(0, 1) !== '+') {
+    submittedData.mobile = '+' + submittedData.mobile;
   }
+  console.log(submittedData);
   fetch('https://p40.laywagif.com/api/preorders', {
     method: 'post',
     headers: {
       Accept: 'application/json, text/plain, */*',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(formData)
+    body: JSON.stringify(submittedData)
   })
     .then(res => res.json())
     .then(res => {
+      submitBtn.classList.remove('btn-spinner');
       document.querySelector('#userData').reset();
       if (res.success) {
         const preOrderSection = document.querySelector(
           '.pre-order-phone-device'
         );
         preOrderSection.classList.remove('second-step');
-        preOrderSection.classList.add('done');
+        preOrderSection.classList.add('congrats');
         document.querySelector('.alert-err-msg').classList.remove('show');
       } else {
         // Show alert error message and desActive submit-btn
@@ -90,6 +106,7 @@ function submitForm() {
     })
     .catch(e => {
       // Show alert error message and desActive submit-btn
+      submitBtn.classList.remove('btn-spinner');
       document.querySelector('.alert-err-msg').classList.add('show');
       submitBtn.setAttribute('disabled', '');
       submitBtn.classList.remove('active');

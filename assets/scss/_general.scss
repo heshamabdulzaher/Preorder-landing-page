@@ -19,6 +19,9 @@ body {
 p {
   line-height: 30px;
 }
+ul {
+  list-style-type: none;
+}
 
 a {
   text-decoration: none;
@@ -48,6 +51,9 @@ a {
   }
   &.justify-between {
     justify-content: space-between;
+  }
+  &.direction-column {
+    flex-direction: column;
   }
 }
 .btn {

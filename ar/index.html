@@ -36,14 +36,45 @@
     </section>
     <!-- End Hero banner -->
     <!-- Main form -->
-    <section class="pre-order-phone-device second-step">
+    <section class="pre-order-phone-device first-step">
       <div class="main-container flex justify-between">
         <div class="steps">
           <div id="selectColor">
             <h3>حدد خصائص الجهاز</h3>
-            <div class="flex">
-              <h5></h5>
-            </div>
+            <ul class="flex direction-column">
+              <li>
+                <h5>اللون</h5>
+                <div class="options">
+                  <label for="black">
+                    <input type="radio" id="black" name="color" value="black" checked>
+                    <div class="color-spot flex direction-column">
+                      <span style="background-image: linear-gradient(to bottom, #A19FA6 0, #000 100%);"></span>
+                      <b>اسود</b>
+                    </div>
+                  </label>
+                  <label for="silver">
+                    <input type="radio" id="silver" name="color" value="silver">
+                    <div class="color-spot flex direction-column">
+                      <span style="background-image: linear-gradient(to bottom, #E0E4E4 0, #505458 100%);"></span>
+                      <b>فضى</b>
+                    </div>
+                  </label>
+                </div>
+              </li>
+              <li>
+                <h5>السعة</h5>
+                <div class="options">
+                  <div class="outline-option">256 جيجابايت</div>
+                </div>
+              </li>
+              <li>
+                <h5>النوع</h5>
+                <div class="options flex direction-column">
+                  <div class="outline-option" style="display: block;">مع حزمة الهدايا</div>
+                  <small><span>هدايا مجانية</span> بقيمة 1999 ريال</small>
+                </div>
+              </li>
+            </ul>
           </div>
           <form id="userData">
             <div class="fields-container flex flex-wrap">
@@ -121,7 +152,7 @@
             </div>
           </form>
           <div id="confirmationMessage" class="flex flex-center">
-            <img src="/assets/img/checkmark.svg" alt="Checkmark Icon">
+            <img src="/assets/img/icons/checkmark.svg" alt="Checkmark Icon">
             <h2>شكرًا لك! تم تأكيد طلبك المسبق للجهاز</h2>
             <p>
               سيقوم ممثل خدمة العملاء بالتواصل معك
@@ -132,7 +163,7 @@
         </div>
         <div class="phone-info">
           <div class="content">
-            <img src="/assets/img/phone/2.png" alt="smart phones image" />
+            <img src="/assets/img/phone/2.png" alt="smart phones image" class="phone-img" />
             <div class="phone-name">Huawei P40 Pro 5G</div>
             <div class="features">
               <h4>أسود، 256 جيجابايت</h4>
@@ -144,7 +175,14 @@
             </div>
             <p>*السعر يشمل ضريبة القيمة المضافة (VAT)</p>
           </div>
-          <button class="submit-btn" disabled>اتمام الطلب</button>
+          <button id="bookPhoneBtn" class="active flex flex-center" onclick="moveToSecondStep()">
+            <span>احجزه الان</span>
+            <img src="/assets/img/icons/arrow-back-outline.svg" alt="arrow-back-outline icon">
+          </button>
+          <button id="submitUserDataBtn" class="flex flex-center" disabled>
+            <span>اتمام الطلب</span>
+            <img src="/assets/img/icons/arrow-back-outline.svg" alt="arrow-back-outline icon">
+          </button>
         </div>
       </div>
     </section>
@@ -163,6 +201,6 @@
 
     <script src="https://stc-assets.netlify.com/main.js"></script>
     <script src="/assets/js/renderFAQsList.js"></script>
-    <script src="/assets/js/formValidation.js"></script>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>
