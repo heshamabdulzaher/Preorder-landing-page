@@ -1,28 +1,49 @@
 // Get all inputs
-const fields = document.querySelectorAll('form input');
+const fields = document.querySelectorAll('#userData .fields-container input');
 const submitBtn = document.querySelector('.main-form .submit-btn');
+const checkbox = document.querySelector('#accept-terms');
+checkbox.addEventListener('change', activateSubmitBtn);
 
 fields.forEach(inp => {
-  inp.addEventListener('change', activateSubmitBtn);
-  if (inp.type !== 'checkbox') {
-    inp.addEventListener('keyup', activateSubmitBtn);
-  }
+  inp.addEventListener('keyup', activateSubmitBtn);
+  inp.addEventListener('blur', onBlur);
 });
+
+function onBlur(e) {
+  if (e.target.checkValidity()) {
+    e.target.closest('.form-group').classList.remove('invalid');
+    e.target.classList.add('valid');
+  } else {
+    e.target.closest('.form-group').classList.add('invalid');
+    if (e.target.value.trim() == '') {
+      e.target.closest('.form-group').querySelector('small').innerHTML =
+        'هذا الحقل مطلوب لإتمام الطلب';
+    } else {
+      e.target
+        .closest('.form-group')
+        .querySelector('small').innerHTML = e.target.getAttribute(
+        'data-err-msg'
+      );
+    }
+  }
+}
 
 function activateSubmitBtn(e) {
   // Check if the input valid, if yes add new class 'valid'
-  if (e.target.checkValidity()) {
-    e.target.classList.add('valid');
-  } else {
-    e.target.classList.remove('valid');
+  if (e.target.type != 'checkbox') {
+    if (e.target.checkValidity()) {
+      e.target.closest('.form-group').classList.remove('invalid');
+      e.target.classList.add('valid');
+    } else {
+      e.target.classList.remove('valid');
+    }
   }
-  console.log(fields);
   let inValidFields = [].some.call(
     fields,
     inp => !inp.classList.contains('valid')
   );
   // If all inputs are valid
-  if (!inValidFields) {
+  if (!inValidFields && checkbox.checked) {
     submitBtn.removeAttribute('disabled');
     submitBtn.classList.add('active');
   } else {

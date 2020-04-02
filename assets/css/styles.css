@@ -332,8 +332,16 @@ header .lang-switcher {
   display: flex;
   flex-direction: column;
   padding-left: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
+  position: relative;
   width: 50%;
+}
+.main-form form .form-group.invalid input {
+  border: 1px solid #ff375e;
+}
+.main-form form .form-group.invalid small {
+  transform: translateY(0);
+  opacity: 1;
 }
 .main-form form .form-group label {
   margin-bottom: 8px;
@@ -344,9 +352,21 @@ header .lang-switcher {
   padding: 5px 12px;
   border-radius: 2px;
   transition: all 0.2s ease-in-out;
+  position: relative;
+  z-index: 2;
 }
 .main-form form .form-group input:focus {
   border: 1px solid #4f008c;
+}
+.main-form form .form-group small {
+  position: absolute;
+  top: calc(100% + 3px);
+  right: 0;
+  z-index: 1;
+  color: #ff375e;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
 }
 .main-form form .accept-terms {
   padding: 40px 0 50px;
