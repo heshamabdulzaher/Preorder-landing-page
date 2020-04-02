@@ -73,20 +73,25 @@ function submitForm() {
   })
     .then(res => res.json())
     .then(res => {
+      document.querySelector('#userData').reset();
       if (res.success) {
-        alert('Thanks'); // TODO Show success message
-        document.querySelector('#userData').reset();
         const preOrderSection = document.querySelector(
           '.pre-order-phone-device'
         );
         preOrderSection.classList.remove('second-step');
         preOrderSection.classList.add('done');
-        // TODO clear form
+        document.querySelector('.alert-err-msg').classList.remove('show');
       } else {
-        alert(res.message || 'Request error'); // TODO Show error message
+        // Show alert error message and desActive submit-btn
+        document.querySelector('.alert-err-msg').classList.add('show');
+        submitBtn.setAttribute('disabled', '');
+        submitBtn.classList.remove('active');
       }
     })
     .catch(e => {
-      alert(e.message || 'Request error'); // TODO Show error message
+      // Show alert error message and desActive submit-btn
+      document.querySelector('.alert-err-msg').classList.add('show');
+      submitBtn.setAttribute('disabled', '');
+      submitBtn.classList.remove('active');
     });
 }
