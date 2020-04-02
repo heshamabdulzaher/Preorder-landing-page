@@ -51,9 +51,9 @@
                 required
                 type="tel"
                 minlength="9"
-                maxlength="15"
+                maxlength="16"
                 name="mobile"
-                pattern="[0-9]{9,15}"
+                pattern="\+?[0-9]{9,15}"
               />
             </div>
             <div class="form-group">
@@ -75,7 +75,7 @@
             </div>
           </div>
           <div class="accept-terms">
-            <input type="checkbox" id="accept-terms" />
+            <input type="checkbox" id="accept-terms" required />
             <label for="accept-terms">
               <span>أنا اوافق على</span>
               <a

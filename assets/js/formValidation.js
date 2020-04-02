@@ -17,6 +17,7 @@ function activateSubmitBtn(e) {
   } else {
     e.target.classList.remove('valid');
   }
+  console.log(fields);
   let inValidFields = [].some.call(
     fields,
     inp => !inp.classList.contains('valid')
@@ -39,8 +40,10 @@ function submitForm() {
       formData[inp.getAttribute('name')] = inp.value;
     }
   });
-  console.log(formData);
-  fetch('https://p40.laywagif.com/preorders', {
+  if (formData.mobile.substr(0, 1) !== '+') {
+    formData.mobile = '+' + formData.mobile;
+  }
+  fetch('https://p40.laywagif.com/api/preorders', {
     method: 'post',
     headers: {
       Accept: 'application/json, text/plain, */*',
@@ -49,5 +52,15 @@ function submitForm() {
     body: JSON.stringify(formData)
   })
     .then(res => res.json())
-    .then(res => console.log(res));
+    .then(res => {
+      if (res.success) {
+        alert('Thanks'); // TODO Show success message
+        // TODO clear form
+      } else {
+        alert(res.message || 'Request error'); // TODO Show error message
+      }
+    })
+    .catch(e => {
+      alert(e.message || 'Request error'); // TODO Show error message
+    });
 }
