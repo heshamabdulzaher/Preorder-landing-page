@@ -36,82 +36,93 @@
     </section>
     <!-- End Hero banner -->
     <!-- Main form -->
-    <section class="main-form">
-      <div class="main-container flex">
-        <form id="userData">
-          <div class="fields-container flex flex-wrap">
-            <h3>فضلًا ادخل معلوماتك لإتمام الطلب</h3>
-            <div class="form-group">
-              <label>الاسم الكامل</label>
-              <input
-                required
-                type="text"
-                name="name"
-                pattern=".{2,255}"
-                data-err-msg="أكتب اسمك بشكل صحيح ( 2 - 255 ) حرف"
-              />
-              <small></small>
+    <section class="pre-order-phone-device second-step">
+      <div class="main-container flex justify-between">
+        <div class="steps">
+          <form id="userData">
+            <div class="fields-container flex flex-wrap">
+              <h3>فضلًا ادخل معلوماتك لإتمام الطلب</h3>
+              <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input
+                  required
+                  type="text"
+                  name="name"
+                  pattern=".{2,255}"
+                  data-err-msg="أكتب اسمك بشكل صحيح ( 2 - 255 ) حرف"
+                />
+                <small></small>
+              </div>
+              <div class="form-group">
+                <label>رقم الجوال</label>
+                <input
+                  required
+                  type="tel"
+                  minlength="9"
+                  maxlength="16"
+                  name="mobile"
+                  pattern="\+?[0-9]{9,15}"
+                  data-err-msg="من فضلك تأكد من كتابة رقم الجوال بشكل صحيح"
+                />
+                <small></small>
+              </div>
+              <div class="form-group">
+                <label>البريد الالكترونى</label>
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                  data-err-msg="من فضلك تأكد من كتابة البريد الالكترونى بشكل صحيح"
+                />
+                <small></small>
+              </div>
+              <div class="form-group">
+                <label>الحى</label>
+                <input
+                  required
+                  type="text"
+                  name="city"
+                  pattern=".{2,255}"
+                  data-err-msg="أكتب اسم الحى بشكل صحيح ( 2 - 255 ) حرف"
+                />
+                <small></small>
+              </div>
+              <div class="form-group">
+                <label>المدينة</label>
+                <input
+                  required
+                  type="text"
+                  name="district"
+                  pattern=".{2,255}"
+                  data-err-msg="أكتب اسم المدينة بشكل صحيح ( 2 - 255 ) حرف"
+                />
+                <small></small>
+              </div>
             </div>
-            <div class="form-group">
-              <label>رقم الجوال</label>
-              <input
-                required
-                type="tel"
-                minlength="9"
-                maxlength="16"
-                name="mobile"
-                pattern="\+?[0-9]{9,15}"
-                data-err-msg="من فضلك تأكد من كتابة رقم الجوال بشكل صحيح"
-              />
-              <small></small>
+            <div class="accept-terms">
+              <input type="checkbox" id="accept-terms" required />
+              <label for="accept-terms">
+                <span>أنا اوافق على</span>
+                <a
+                  href="https://www.stc.com.sa/wps/wcm/connect/arabic/individual/static/terms-conditions"
+                  target="_blank"
+                  rel="noopener"
+                  >شروط وأحكام الطلب المسبق</a
+                >
+              </label>
             </div>
-            <div class="form-group">
-              <label>البريد الالكترونى</label>
-              <input
-                required
-                type="email"
-                name="email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                data-err-msg="من فضلك تأكد من كتابة البريد الالكترونى بشكل صحيح"
-              />
-              <small></small>
-            </div>
-            <div class="form-group">
-              <label>الحى</label>
-              <input
-                required
-                type="text"
-                name="city"
-                pattern=".{2,255}"
-                data-err-msg="أكتب اسم الحى بشكل صحيح ( 2 - 255 ) حرف"
-              />
-              <small></small>
-            </div>
-            <div class="form-group">
-              <label>المدينة</label>
-              <input
-                required
-                type="text"
-                name="district"
-                pattern=".{2,255}"
-                data-err-msg="أكتب اسم المدينة بشكل صحيح ( 2 - 255 ) حرف"
-              />
-              <small></small>
-            </div>
+          </form>
+          <div id="confirmationMessage" class="flex flex-center">
+            <img src="/assets/img/checkmark.svg" alt="Checkmark Icon">
+            <h2>شكرًا لك! تم تأكيد طلبك المسبق للجهاز</h2>
+            <p>
+              سيقوم ممثل خدمة العملاء بالتواصل معك
+              </br>
+              لتأكيد معلوماتك وآلية الإستلام
+            </p>
           </div>
-          <div class="accept-terms">
-            <input type="checkbox" id="accept-terms" required />
-            <label for="accept-terms">
-              <span>أنا اوافق على</span>
-              <a
-                href="https://www.stc.com.sa/wps/wcm/connect/arabic/individual/static/terms-conditions"
-                target="_blank"
-                rel="noopener"
-                >شروط وأحكام الطلب المسبق</a
-              >
-            </label>
-          </div>
-        </form>
+        </div>
         <div class="phone-info">
           <div class="content">
             <img src="/assets/img/phone/2.png" alt="smart phones image" />

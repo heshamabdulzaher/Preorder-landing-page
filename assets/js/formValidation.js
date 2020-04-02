@@ -1,6 +1,6 @@
 // Get all inputs
 const fields = document.querySelectorAll('#userData .fields-container input');
-const submitBtn = document.querySelector('.main-form .submit-btn');
+const submitBtn = document.querySelector('.pre-order-phone-device .submit-btn');
 const checkbox = document.querySelector('#accept-terms');
 checkbox.addEventListener('change', activateSubmitBtn);
 
@@ -75,6 +75,12 @@ function submitForm() {
     .then(res => {
       if (res.success) {
         alert('Thanks'); // TODO Show success message
+        document.querySelector('#userData').reset();
+        const preOrderSection = document.querySelector(
+          '.pre-order-phone-device'
+        );
+        preOrderSection.classList.remove('second-step');
+        preOrderSection.classList.add('done');
         // TODO clear form
       } else {
         alert(res.message || 'Request error'); // TODO Show error message
