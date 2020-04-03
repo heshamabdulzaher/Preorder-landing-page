@@ -114,6 +114,7 @@
   text-align: center;
   h2 {
     margin: 40px 0 20px;
+    line-height: 40px;
   }
   p {
     font-size: 18px;
@@ -150,8 +151,8 @@
     .main-container {
       flex-direction: column-reverse;
       overflow: hidden;
-      padding: 20px;
-      padding-bottom: 60px;
+      padding: 16px;
+      padding-bottom: 70px;
       position: relative;
     }
     #aboutDevice {
@@ -167,4 +168,53 @@
   }
 }
 
-// #preOrderTheDeviceSection.first-step #aboutDevice .submitColorDeviceBtn
+@media screen and (max-width: 560px) {
+  #preOrderTheDeviceSection .main-container {
+    .steps {
+      #pickDeviceColor,
+      #userInfoForm,
+      #confirmationMessage {
+        padding: 0;
+        padding-top: 40px;
+        h3 {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 560px) {
+  #preOrderTheDeviceSection .main-container {
+    // .steps {
+    //   #pickDeviceColor,
+    //   #userInfoForm,
+    //   #confirmationMessage {
+    //     padding: 0;
+    //     padding-top: 40px;
+    //     h3 {
+    //       text-align: center;
+    //     }
+    //   }
+    // }
+    #pickDeviceColor ul li {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      h5 {
+        margin-bottom: 30px;
+      }
+      &:first-of-type .options {
+        width: 100%;
+      }
+      .options {
+        label {
+          padding: 0;
+          align-items: flex-start;
+          margin: 0 !important;
+          width: 50%;
+        }
+      }
+    }
+  }
+}

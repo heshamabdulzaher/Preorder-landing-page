@@ -438,9 +438,11 @@ header .lang-switcher {
 #pickDeviceColor .outline-option {
   padding: 12px 32px;
   border: 2px solid #ff375e;
+  text-align: center;
+  line-height: 24px;
   color: #ff375e;
   font-weight: 500;
-  border-radius: 40px;
+  border-radius: 100px;
   background-color: #fff;
   box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.12);
 }
@@ -709,6 +711,7 @@ header .lang-switcher {
 }
 #confirmationMessage h2 {
   margin: 40px 0 20px;
+  line-height: 40px;
 }
 #confirmationMessage p {
   font-size: 18px;
@@ -742,8 +745,8 @@ header .lang-switcher {
   #preOrderTheDeviceSection .main-container {
     flex-direction: column-reverse;
     overflow: hidden;
-    padding: 20px;
-    padding-bottom: 60px;
+    padding: 16px;
+    padding-bottom: 70px;
     position: relative;
   }
   #preOrderTheDeviceSection #aboutDevice {
@@ -753,6 +756,39 @@ header .lang-switcher {
   }
   #preOrderTheDeviceSection.first-step .device-details {
     display: none !important;
+  }
+}
+@media screen and (max-width: 560px) {
+  #preOrderTheDeviceSection .main-container .steps #pickDeviceColor,
+#preOrderTheDeviceSection .main-container .steps #userInfoForm,
+#preOrderTheDeviceSection .main-container .steps #confirmationMessage {
+    padding: 0;
+    padding-top: 40px;
+  }
+  #preOrderTheDeviceSection .main-container .steps #pickDeviceColor h3,
+#preOrderTheDeviceSection .main-container .steps #userInfoForm h3,
+#preOrderTheDeviceSection .main-container .steps #confirmationMessage h3 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 560px) {
+  #preOrderTheDeviceSection .main-container #pickDeviceColor ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #preOrderTheDeviceSection .main-container #pickDeviceColor ul li h5 {
+    margin-bottom: 30px;
+  }
+  #preOrderTheDeviceSection .main-container #pickDeviceColor ul li:first-of-type .options {
+    width: 100%;
+  }
+  #preOrderTheDeviceSection .main-container #pickDeviceColor ul li .options label {
+    padding: 0;
+    align-items: flex-start;
+    margin: 0 !important;
+    width: 50%;
   }
 }
 body.en #pickDeviceColor .options label:first-of-type {
