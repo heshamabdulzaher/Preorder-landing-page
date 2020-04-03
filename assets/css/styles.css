@@ -97,6 +97,10 @@
   font-family: "STCForward", sans-serif, arial;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fff;
   color: #1d252d;
@@ -351,10 +355,10 @@ header .lang-switcher {
 .pre-order-phone-device.second-step #submitUserDataBtn {
   display: flex !important;
 }
-.pre-order-phone-device.done .steps #confirmationMessage {
+.pre-order-phone-device.congrats .steps #confirmationMessage {
   display: flex;
 }
-.pre-order-phone-device.done .submit-btn {
+.pre-order-phone-device.congrats .submit-btn {
   display: none;
 }
 
