@@ -1,5 +1,7 @@
 let submittedData = {};
-const preOrderPhoneSection = document.querySelector('.pre-order-phone-device');
+const preOrderPhoneSection = document.querySelector(
+  '#preOrderTheDeviceSection'
+);
 
 // Let's move to the second step
 function moveToSecondStep() {
@@ -16,7 +18,7 @@ function moveToSecondStep() {
 const fields = document.querySelectorAll(
   '#userInfoForm .fields-container input[name]'
 );
-const submitBtn = document.querySelector('#submitUserDataBtn');
+const submitBtn = document.querySelector('.submitUserDataBtn');
 const checkbox = document.querySelector('#accept-terms');
 checkbox.addEventListener('change', activateSubmitBtn);
 
@@ -104,11 +106,8 @@ function submitUserData() {
       submitBtn.classList.remove('btn-spinner');
       document.querySelector('#userInfoForm').reset();
       if (res.success) {
-        const preOrderSection = document.querySelector(
-          '.pre-order-phone-device'
-        );
-        preOrderSection.classList.remove('second-step');
-        preOrderSection.classList.add('congrats');
+        preOrderPhoneSection.classList.remove('second-step');
+        preOrderPhoneSection.classList.add('congrats');
         document.querySelector('.alert-err-msg').classList.remove('show');
       } else {
         // Show alert error message and desActive submit-btn

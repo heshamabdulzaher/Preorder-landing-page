@@ -385,62 +385,6 @@ header .lang-switcher {
     transform: translateY(0);
   }
 }
-.pre-order-phone-device {
-  padding: 100px 20px 60px;
-}
-.pre-order-phone-device .main-container {
-  background-color: #f3f3f1;
-  padding: 0;
-  border-radius: 8px;
-}
-.pre-order-phone-device .main-container .steps #pickDeviceColor,
-.pre-order-phone-device .main-container .steps #userInfoForm,
-.pre-order-phone-device .main-container .steps #confirmationMessage {
-  display: none;
-  padding: 40px 30px 20px;
-}
-.pre-order-phone-device .main-container .steps #pickDeviceColor h3,
-.pre-order-phone-device .main-container .steps #userInfoForm h3,
-.pre-order-phone-device .main-container .steps #confirmationMessage h3 {
-  font-weight: 500;
-  margin-bottom: 30px;
-  color: #1d252d;
-  font-size: 24px;
-  display: block;
-  width: 100%;
-}
-.pre-order-phone-device.first-step .steps #pickDeviceColor {
-  display: block;
-}
-.pre-order-phone-device.first-step #bookPhoneBtn {
-  display: flex !important;
-}
-.pre-order-phone-device.second-step .steps #userInfoForm {
-  display: flex;
-}
-.pre-order-phone-device.second-step #submitUserDataBtn {
-  display: flex !important;
-}
-.pre-order-phone-device.congrats .steps #confirmationMessage {
-  display: flex;
-}
-.pre-order-phone-device.congrats .submit-btn {
-  display: none;
-}
-
-#confirmationMessage {
-  width: 100%;
-  height: 100%;
-  flex-direction: column;
-  text-align: center;
-}
-#confirmationMessage h2 {
-  margin: 40px 0 20px;
-}
-#confirmationMessage p {
-  font-size: 18px;
-}
-
 #pickDeviceColor h5 {
   font-size: 20px;
   font-weight: 500;
@@ -515,15 +459,6 @@ header .lang-switcher {
   border-bottom: 0;
 }
 
-@media screen and (max-width: 880px) {
-  #pickDeviceColor {
-    padding: 20px;
-  }
-  #pickDeviceColor h5 {
-    font-size: 18px;
-    min-width: 80px;
-  }
-}
 #userInfoForm {
   width: 100%;
   height: 100%;
@@ -601,7 +536,7 @@ header .lang-switcher {
   display: block;
 }
 #userInfoForm .accept-terms {
-  padding: 40px 0 30px;
+  padding: 40px 0 10px;
   border-top: 1px solid rgba(142, 154, 160, 0.3);
 }
 #userInfoForm .accept-terms input {
@@ -612,18 +547,6 @@ header .lang-switcher {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 1000px) {
-  #userInfoForm .form-group {
-    width: 100%;
-    padding: 0 !important;
-  }
-}
-@media screen and (max-width: 850px) {
-  #userInfoForm .form-group {
-    width: 100%;
-    padding: 0 !important;
-  }
-}
 #aboutDevice {
   min-width: 400px;
   border-radius: 6px;
@@ -635,6 +558,8 @@ header .lang-switcher {
   justify-content: space-between;
   text-align: center;
   overflow: hidden;
+  position: relative;
+  padding-bottom: 60px;
 }
 #aboutDevice .content {
   padding: 50px 30px 40px;
@@ -644,29 +569,55 @@ header .lang-switcher {
 }
 #aboutDevice p {
   color: #8e9aa0;
+  font-weight: normal;
+  margin-top: 8px;
+  font-size: 15px;
 }
-#aboutDevice h4,
-#aboutDevice .price {
+#aboutDevice h4 {
   font-weight: 500;
   font-size: 18px;
-  margin-bottom: 4px;
 }
-#aboutDevice h4 span,
-#aboutDevice .price span {
+#aboutDevice h4 span {
   color: #ff375e;
   font-size: 24px;
 }
 #aboutDevice .phone-name {
   font-weight: 600;
   font-size: 24px;
-  margin-bottom: 30px;
+}
+#aboutDevice .device-details {
+  margin-top: 30px;
 }
 #aboutDevice .features {
   margin-bottom: 30px;
 }
-#aboutDevice button {
+
+#preOrderTheDeviceSection {
+  padding: 100px 20px 60px;
+}
+#preOrderTheDeviceSection .main-container {
+  background-color: #f3f3f1;
+  padding: 0;
+  border-radius: 8px;
+}
+#preOrderTheDeviceSection .main-container .steps #pickDeviceColor,
+#preOrderTheDeviceSection .main-container .steps #userInfoForm,
+#preOrderTheDeviceSection .main-container .steps #confirmationMessage {
+  display: none;
+  padding: 40px 30px;
+}
+#preOrderTheDeviceSection .main-container .steps #pickDeviceColor h3,
+#preOrderTheDeviceSection .main-container .steps #userInfoForm h3,
+#preOrderTheDeviceSection .main-container .steps #confirmationMessage h3 {
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #1d252d;
+  font-size: 24px;
+  display: block;
   width: 100%;
-  padding: 22px 20px;
+}
+#preOrderTheDeviceSection .submitColorDeviceBtn,
+#preOrderTheDeviceSection .submitUserDataBtn {
   justify-content: center;
   align-items: center;
   background-color: #a8abae;
@@ -674,15 +625,23 @@ header .lang-switcher {
   font-size: 18px;
   cursor: not-allowed;
   display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
 }
-#aboutDevice button.active {
+#preOrderTheDeviceSection .submitColorDeviceBtn.active,
+#preOrderTheDeviceSection .submitUserDataBtn.active {
   background-color: #ff375e;
   cursor: pointer;
 }
-#aboutDevice button.btn-spinner {
-  position: relative;
+#preOrderTheDeviceSection .submitColorDeviceBtn.btn-spinner,
+#preOrderTheDeviceSection .submitUserDataBtn.btn-spinner {
+  position: absolute;
 }
-#aboutDevice button.btn-spinner::after {
+#preOrderTheDeviceSection .submitColorDeviceBtn.btn-spinner::after,
+#preOrderTheDeviceSection .submitUserDataBtn.btn-spinner::after {
   content: "";
   position: absolute;
   top: 0;
@@ -691,7 +650,8 @@ header .lang-switcher {
   height: 100%;
   background-color: #a8abae;
 }
-#aboutDevice button.btn-spinner::before {
+#preOrderTheDeviceSection .submitColorDeviceBtn.btn-spinner::before,
+#preOrderTheDeviceSection .submitUserDataBtn.btn-spinner::before {
   content: "";
   position: absolute;
   z-index: 2;
@@ -713,14 +673,83 @@ header .lang-switcher {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-#aboutDevice button img {
+#preOrderTheDeviceSection .submitColorDeviceBtn img,
+#preOrderTheDeviceSection .submitUserDataBtn img {
   margin-right: 16px;
   width: 16px;
 }
+#preOrderTheDeviceSection.first-step .steps #pickDeviceColor {
+  display: block;
+}
+#preOrderTheDeviceSection.first-step #aboutDevice .submitColorDeviceBtn {
+  display: flex !important;
+}
+#preOrderTheDeviceSection.second-step .steps #userInfoForm {
+  display: flex;
+}
+#preOrderTheDeviceSection.second-step #aboutDevice .submitUserDataBtn {
+  display: flex !important;
+}
+#preOrderTheDeviceSection.congrats .steps #confirmationMessage {
+  display: flex;
+}
+#preOrderTheDeviceSection.congrats .submitColorDeviceBtn,
+#preOrderTheDeviceSection.congrats .submitUserDataBtn {
+  display: none !important;
+}
 
+#confirmationMessage {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+#confirmationMessage h2 {
+  margin: 40px 0 20px;
+}
+#confirmationMessage p {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1000px) {
+  #userInfoForm .form-group {
+    width: 100%;
+    padding: 0 !important;
+  }
+}
 @media screen and (max-width: 880px) {
+  #pickDeviceColor {
+    padding: 20px;
+  }
+  #pickDeviceColor h5 {
+    font-size: 18px;
+    min-width: 80px;
+  }
+
+  #userInfoForm .form-group {
+    width: 100%;
+    padding: 0 !important;
+  }
+
   #aboutDevice {
     min-width: 360px;
+  }
+}
+@media screen and (max-width: 800px) {
+  #preOrderTheDeviceSection .main-container {
+    flex-direction: column-reverse;
+    overflow: hidden;
+    padding: 20px;
+    padding-bottom: 60px;
+    position: relative;
+  }
+  #preOrderTheDeviceSection #aboutDevice {
+    padding-bottom: 0;
+    position: static;
+    min-width: 100%;
+  }
+  #preOrderTheDeviceSection.first-step .device-details {
+    display: none !important;
   }
 }
 

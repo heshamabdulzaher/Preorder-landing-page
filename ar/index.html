@@ -58,7 +58,7 @@
     </section>
     <!-- End Hero banner -->
     <!-- Main form -->
-    <section id="pre-order-phone-device" class="pre-order-phone-device first-step">
+    <section id="preOrderTheDeviceSection" class="pre-order-phone-device first-step">
       <div class="main-container flex justify-between">
         <div class="steps">
           <div id="pickDeviceColor">
@@ -198,21 +198,25 @@
           <div class="content">
             <img src="/assets/img/phone/2.png" alt="smart phones image" class="phone-img" />
             <div class="phone-name">Huawei P40 Pro 5G</div>
-            <div class="features">
-              <h4>أسود، 256 جيجابايت</h4>
-              <p>يتضمن هدايا بقيمة 1999 ريال</p>
+            <div class="device-details">
+              <div class="features">
+                <h4>أسود، 256 جيجابايت</h4>
+                <p>يتضمن هدايا بقيمة 1999 ريال</p>
+              </div>
+              <div class="price">
+                <h4>
+                  اجمالى السعر
+                  <span>3465 ريال</span>
+                </h4>
+                <p>*السعر يشمل ضريبة القيمة المضافة (VAT)</p>
+              </div>
             </div>
-            <div class="price">
-              اجمالى السعر
-              <span>3465 ريال</span>
-            </div>
-            <p>*السعر يشمل ضريبة القيمة المضافة (VAT)</p>
           </div>
-          <button id="bookPhoneBtn" class="active flex flex-center" onclick="moveToSecondStep()">
+          <button id="submitColorDeviceBtn" class="submitColorDeviceBtn active flex flex-center" onclick="moveToSecondStep()">
             <span>احجزه الان</span>
             <img src="/assets/img/icons/arrow-back-outline.svg" alt="arrow-back-outline icon">
           </button>
-          <button id="submitUserDataBtn" class="flex flex-center" disabled>
+          <button id="submitUserDataBtn" class="submitUserDataBtn flex flex-center" disabled>
             <span>اتمام الطلب</span>
             <img src="/assets/img/icons/arrow-back-outline.svg" alt="arrow-back-outline icon">
           </button>

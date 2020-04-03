@@ -76,7 +76,7 @@
     }
   }
   .accept-terms {
-    padding: 40px 0 30px;
+    padding: 40px 0 10px;
     border-top: 1px solid rgba(142, 154, 160, 0.3);
     input {
       margin-left: 10px;
@@ -85,18 +85,5 @@
       color: $S_color;
       text-decoration: underline;
     }
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  #userInfoForm .form-group {
-    width: 100%;
-    padding: 0 !important;
-  }
-}
-@media screen and (max-width: 850px) {
-  #userInfoForm .form-group {
-    width: 100%;
-    padding: 0 !important;
   }
 }
