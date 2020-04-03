@@ -13,7 +13,7 @@ function moveToSecondStep() {
 
 // On the second step let's begin with validation
 // Get all inputs
-const fields = document.querySelectorAll('#userData .fields-container input');
+const fields = document.querySelectorAll('#userData .fields-container input[name]');
 const submitBtn = document.querySelector('#submitUserDataBtn');
 const checkbox = document.querySelector('#accept-terms');
 checkbox.addEventListener('change', activateSubmitBtn);
@@ -77,6 +77,17 @@ function submitUserData() {
   if (submittedData.mobile.substr(0, 1) !== '+') {
     submittedData.mobile = '+' + submittedData.mobile;
   }
+  if (submittedData.cityId) {
+    submittedData.cityId = Number.parseInt(submittedData.cityId);
+  } else {
+    submittedData.cityId = null;
+  }
+  if (submittedData.districtId) {
+    submittedData.districtId = Number.parseInt(submittedData.districtId);
+  } else {
+    submittedData.districtId = null;
+  }
+
   console.log(submittedData);
   fetch('https://p40.laywagif.com/api/preorders', {
     method: 'post',
@@ -112,3 +123,103 @@ function submitUserData() {
       submitBtn.classList.remove('active');
     });
 }
+
+/* Geo Dropdowns */
+
+function activateSubmitBtnSimple() {
+  let inValidFields = [].some.call(
+      fields,
+      inp => !inp.classList.contains('valid')
+  );
+  if (!inValidFields && checkbox.checked) {
+    submitBtn.removeAttribute('disabled');
+    submitBtn.classList.add('active');
+  } else {
+    submitBtn.setAttribute('disabled', '');
+    submitBtn.classList.remove('active');
+  }
+}
+
+
+function loadGetDropdown(dropdown, endpoint, callback) {
+  let lang = dropdown.dataset.lang;
+  let wrap = dropdown.querySelector('.dropdown-wrap');
+  wrap.innerHTML = '';
+  dropdown.classList.add('disabled');
+  dropdown.classList.remove('empty');
+  let btn = dropdown.querySelector('button');
+  btn.innerText = btn.dataset.default;
+  let input = dropdown.querySelector('input[type=hidden]');
+  input.value = '';
+  input.classList.remove('valid');
+  fetch('https://p40.laywagif.com/api/' + endpoint, {
+    method: 'get',
+    headers: {
+      Accept: 'application/json, text/plain, */*',
+    }
+  }).then(res => res.json()).then(data => {
+    data.data.map(item => {
+      let a = document.createElement("a"), id = item.id, name = (lang === 'ar' ? item.nameAr : item.nameEn);
+      a.innerText = name;
+      a.addEventListener('click', (e) => {
+        e.stopPropagation();
+        input.value = id;
+        input.classList.add('valid');
+        btn.innerText = name;
+        dropdown.classList.remove('open');
+        if (callback) {
+          callback(id);
+        }
+        activateSubmitBtnSimple();
+        return false;
+      });
+      wrap.append(a);
+    });
+    if (data.data.length > 0) {
+      dropdown.classList.remove('disabled');
+    } else {
+      dropdown.classList.remove('disabled');
+      dropdown.classList.add('empty'); // Dropdown is empty
+      input.classList.add('valid');
+    }
+  });
+}
+
+const geoDropdowns = document.querySelectorAll('.dropdown-geo');
+
+geoDropdowns.forEach(item => {
+  const btn = item.querySelector('button');
+  btn.innerText = btn.dataset.default;
+  btn.addEventListener('click', (e) => {
+    item.classList.toggle('open');
+    item.querySelector('input').value = '';
+    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
+      a.classList.remove('hide');
+    });
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  });
+  item.querySelector('input[type=text]').addEventListener('keyup', (e) => {
+    const
+        val = e.target.value.toString().trim(),
+        regexp = new RegExp(val.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
+      if (!val || regexp.test(a.innerHTML)) {
+        a.classList.remove('hide');
+      } else {
+        a.classList.add('hide');
+      }
+    });
+  });
+});
+
+const
+    cityDropdown = document.querySelector('.dropdown-geo[data-param=city]'),
+    districtDropdown = document.querySelector('.dropdown-geo[data-param=district]');
+loadGetDropdown(cityDropdown, 'cities', (id) => {
+  loadGetDropdown(districtDropdown, 'districts?city=' + id);
+});
+
+
+

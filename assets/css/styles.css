@@ -616,3 +616,52 @@ header .lang-switcher {
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+/* GeoDropdowns */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown.disabled {
+  opacity: 0.3;
+}
+
+.dropdown.empty {
+  opacity: 0.3;
+}
+
+.dropdown button{
+  height: 46px;
+  border: 1px solid #ccc;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+.dropdown .dropdown-wrap, .dropdown input[type=text] {
+  display: none;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 10px #000;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown.open button {
+  display: none;
+}
+
+.dropdown.open .dropdown-wrap, .dropdown.open input[type=text] {
+  display: block;
+}
+
+.dropdown-wrap a {
+  display: block;
+}
+
+.dropdown-wrap a.hide {
+  display: none;
+}
+
