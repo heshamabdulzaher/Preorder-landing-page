@@ -765,5 +765,8 @@ body.en #preOrderTheDeviceSection .submitUserDataBtn img {
   margin-left: 16px;
   transform: rotate(180deg);
 }
+body.en .FAQs ul li .question .arrow-icon {
+  transform: rotate(-90deg);
+}
 
 /*# sourceMappingURL=styles.css.map */

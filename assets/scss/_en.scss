@@ -9,4 +9,7 @@ body.en {
     margin-left: 16px;
     transform: rotate(180deg);
   }
+  .FAQs ul li .question .arrow-icon {
+    transform: rotate(-90deg);
+  }
 }
