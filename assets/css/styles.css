@@ -97,6 +97,10 @@
   font-family: "STCForward", sans-serif, arial;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fff;
   color: #1d252d;
@@ -351,10 +355,10 @@ header .lang-switcher {
 .pre-order-phone-device.second-step #submitUserDataBtn {
   display: flex !important;
 }
-.pre-order-phone-device.done .steps #confirmationMessage {
+.pre-order-phone-device.congrats .steps #confirmationMessage {
   display: flex;
 }
-.pre-order-phone-device.done .submit-btn {
+.pre-order-phone-device.congrats .submit-btn {
   display: none;
 }
 
@@ -460,16 +464,28 @@ header .lang-switcher {
 #userData .form-group label {
   margin-bottom: 8px;
 }
-#userData .form-group input {
+#userData .form-group .form-field {
+  display: flex;
+}
+#userData .form-group .form-field .form-control-prepend {
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #dfe1e6;
+  background-color: #dfe1e6;
+  margin-left: -1px;
+}
+#userData .form-group .form-field input {
+  width: 100%;
   height: 46px;
-  border: 1px solid #ccc;
   padding: 5px 12px;
   border-radius: 3px;
+  border: 1px solid #ccc;
   transition: all 0.2s ease-in-out;
   position: relative;
   z-index: 2;
 }
-#userData .form-group input:focus {
+#userData .form-group .form-field input:focus {
   border: 1px solid #4f008c;
 }
 #userData .form-group small {

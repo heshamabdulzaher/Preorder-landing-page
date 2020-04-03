@@ -10,6 +10,10 @@ $txtColor: #1d252d;
   font-family: 'STCForward', sans-serif, arial;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fff;
   color: $txtColor;
