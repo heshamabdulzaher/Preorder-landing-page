@@ -18,6 +18,9 @@ body {
   background-color: #fff;
   color: $txtColor;
   direction: rtl;
+  &.en {
+    direction: ltr;
+  }
 }
 
 p {

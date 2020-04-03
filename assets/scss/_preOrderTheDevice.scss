@@ -5,6 +5,7 @@
     padding: 0;
     border-radius: 8px;
     .steps {
+      width: 100%;
       #pickDeviceColor,
       #userInfoForm,
       #confirmationMessage {
@@ -132,7 +133,7 @@
     padding: 20px;
     h5 {
       font-size: 18px;
-      min-width: 80px;
+      min-width: 110px;
     }
   }
   #userInfoForm .form-group {

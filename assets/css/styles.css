@@ -106,6 +106,9 @@ body {
   color: #1d252d;
   direction: rtl;
 }
+body.en {
+  direction: ltr;
+}
 
 p {
   line-height: 30px;
@@ -265,9 +268,6 @@ header .lang-switcher {
   font-size: 20px;
   line-height: 38px;
   margin-bottom: 40px;
-}
-.hero-banner .content .main-btn {
-  margin-left: 30px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -600,6 +600,9 @@ header .lang-switcher {
   padding: 0;
   border-radius: 8px;
 }
+#preOrderTheDeviceSection .main-container .steps {
+  width: 100%;
+}
 #preOrderTheDeviceSection .main-container .steps #pickDeviceColor,
 #preOrderTheDeviceSection .main-container .steps #userInfoForm,
 #preOrderTheDeviceSection .main-container .steps #confirmationMessage {
@@ -723,7 +726,7 @@ header .lang-switcher {
   }
   #pickDeviceColor h5 {
     font-size: 18px;
-    min-width: 80px;
+    min-width: 110px;
   }
 
   #userInfoForm .form-group {
@@ -751,6 +754,16 @@ header .lang-switcher {
   #preOrderTheDeviceSection.first-step .device-details {
     display: none !important;
   }
+}
+body.en #pickDeviceColor .options label:first-of-type {
+  margin-left: 0;
+  margin-right: 50px;
+}
+body.en #preOrderTheDeviceSection .submitColorDeviceBtn img,
+body.en #preOrderTheDeviceSection .submitUserDataBtn img {
+  margin-right: 0;
+  margin-left: 16px;
+  transform: rotate(180deg);
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,12 @@
+body.en {
+  #pickDeviceColor .options label:first-of-type {
+    margin-left: 0;
+    margin-right: 50px;
+  }
+  #preOrderTheDeviceSection .submitColorDeviceBtn img,
+  #preOrderTheDeviceSection .submitUserDataBtn img {
+    margin-right: 0;
+    margin-left: 16px;
+    transform: rotate(180deg);
+  }
+}

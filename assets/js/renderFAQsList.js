@@ -1,16 +1,18 @@
 const FAQs = {
   en: [
     {
-      question: '_________',
-      answer: '_____'
+      question: 'What happen to the customer form information?',
+      answer:
+        'It will be passed to our tele sales team who calls the customer and complete the pre-booking order.'
     },
     {
-      question: '_________',
-      answer: '_____'
+      question: 'Where can the customer get his device?',
+      answer:
+        'The tele sales agent will advise the customer either to pick up his devices from one of the stores or deliver it to him (based on the customer location).'
     },
     {
-      question: '_________',
-      answer: '_____'
+      question: 'Is the gift coming with the devices any ways?',
+      answer: 'No, the gift is with the pre-registration orders only.'
     }
   ],
   ar: [
