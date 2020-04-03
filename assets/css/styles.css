@@ -168,6 +168,55 @@ a {
   border: 2px solid #ff375e;
 }
 
+/* GeoDropdowns */
+.dropdown {
+  position: relative;
+}
+
+.dropdown.disabled {
+  opacity: 0.3;
+}
+
+.dropdown.empty {
+  opacity: 0.3;
+}
+
+.dropdown button {
+  height: 46px;
+  border: 1px solid #ccc;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+.dropdown .dropdown-wrap,
+.dropdown input[type=text] {
+  display: none;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 10px #000;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown.open button {
+  display: none;
+}
+
+.dropdown.open .dropdown-wrap,
+.dropdown.open input[type=text] {
+  display: block;
+}
+
+.dropdown-wrap a {
+  display: block;
+}
+
+.dropdown-wrap a.hide {
+  display: none;
+}
+
 header {
   padding: 20px 0;
 }
@@ -191,6 +240,10 @@ header .lang-switcher {
 .hero-banner {
   background-color: #4f008c;
   color: #fff;
+  position: relative;
+}
+.hero-banner .mobile-banner {
+  display: none;
 }
 .hero-banner .content {
   padding: 40px 0;
@@ -217,26 +270,42 @@ header .lang-switcher {
   margin-left: 30px;
 }
 
+@media screen and (max-width: 1000px) {
+  .hero-banner .desktop-banner {
+    max-width: 380px;
+  }
+  .hero-banner .content h1 {
+    font-size: 38px;
+  }
+  .hero-banner .content p {
+    font-size: 18px;
+  }
+}
 @media screen and (max-width: 900px) {
+  .hero-banner .main-container .desktop-banner {
+    max-width: 350px;
+  }
+}
+@media screen and (max-width: 780px) {
   .hero-banner .main-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
   }
-  .hero-banner .main-container .content {
-    margin-top: 40px;
-    text-align: center;
+  .hero-banner .main-container .desktop-banner {
+    display: none;
   }
-  .hero-banner .main-container .content .main-btn {
-    margin: 0 auto;
+  .hero-banner .main-container .mobile-banner {
+    display: block;
+    margin-bottom: 30px;
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 460px) {
   .hero-banner .main-container .content h1 {
-    font-size: 26px;
+    font-size: 30px;
   }
-
-  .hero-banner .main-container .logos .flex {
-    flex-direction: column;
+  .hero-banner .main-container .content p {
+    font-size: 16px;
   }
 }
 .FAQs {
@@ -632,52 +701,3 @@ header .lang-switcher {
 }
 
 /*# sourceMappingURL=styles.css.map */
-
-/* GeoDropdowns */
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown.disabled {
-  opacity: 0.3;
-}
-
-.dropdown.empty {
-  opacity: 0.3;
-}
-
-.dropdown button{
-  height: 46px;
-  border: 1px solid #ccc;
-  padding: 5px 12px;
-  border-radius: 3px;
-}
-
-.dropdown .dropdown-wrap, .dropdown input[type=text] {
-  display: none;
-  position: absolute;
-  background: #fff;
-  box-shadow: 0 0 10px #000;
-  left: 0;
-  right: 0;
-  max-height: 200px;
-  overflow-y: auto;
-}
-
-.dropdown.open button {
-  display: none;
-}
-
-.dropdown.open .dropdown-wrap, .dropdown.open input[type=text] {
-  display: block;
-}
-
-.dropdown-wrap a {
-  display: block;
-}
-
-.dropdown-wrap a.hide {
-  display: none;
-}
-
