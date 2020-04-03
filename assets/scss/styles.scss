@@ -1,6 +1,10 @@
 @import './fonts';
 @import './general';
 @import './header';
-@import './hero-banner';
+@import './heroBanner';
 @import './FAQs';
-@import './pre-order-phone-device';
+// PreOrder device section
+@import './preOrderTheDevice';
+@import './pickDeviceColor'; // step 1
+@import './userInfoForm'; // step 2
+@import './aboutDevice';

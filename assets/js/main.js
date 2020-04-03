@@ -13,7 +13,9 @@ function moveToSecondStep() {
 
 // On the second step let's begin with validation
 // Get all inputs
-const fields = document.querySelectorAll('#userData .fields-container input[name]');
+const fields = document.querySelectorAll(
+  '#userInfoForm .fields-container input[name]'
+);
 const submitBtn = document.querySelector('#submitUserDataBtn');
 const checkbox = document.querySelector('#accept-terms');
 checkbox.addEventListener('change', activateSubmitBtn);
@@ -100,7 +102,7 @@ function submitUserData() {
     .then(res => res.json())
     .then(res => {
       submitBtn.classList.remove('btn-spinner');
-      document.querySelector('#userData').reset();
+      document.querySelector('#userInfoForm').reset();
       if (res.success) {
         const preOrderSection = document.querySelector(
           '.pre-order-phone-device'
@@ -128,8 +130,8 @@ function submitUserData() {
 
 function activateSubmitBtnSimple() {
   let inValidFields = [].some.call(
-      fields,
-      inp => !inp.classList.contains('valid')
+    fields,
+    inp => !inp.classList.contains('valid')
   );
   if (!inValidFields && checkbox.checked) {
     submitBtn.removeAttribute('disabled');
@@ -139,7 +141,6 @@ function activateSubmitBtnSimple() {
     submitBtn.classList.remove('active');
   }
 }
-
 
 function loadGetDropdown(dropdown, endpoint, callback) {
   let lang = dropdown.dataset.lang;
@@ -155,34 +156,38 @@ function loadGetDropdown(dropdown, endpoint, callback) {
   fetch('https://p40.laywagif.com/api/' + endpoint, {
     method: 'get',
     headers: {
-      Accept: 'application/json, text/plain, */*',
+      Accept: 'application/json, text/plain, */*'
     }
-  }).then(res => res.json()).then(data => {
-    data.data.map(item => {
-      let a = document.createElement("a"), id = item.id, name = (lang === 'ar' ? item.nameAr : item.nameEn);
-      a.innerText = name;
-      a.addEventListener('click', (e) => {
-        e.stopPropagation();
-        input.value = id;
-        input.classList.add('valid');
-        btn.innerText = name;
-        dropdown.classList.remove('open');
-        if (callback) {
-          callback(id);
-        }
-        activateSubmitBtnSimple();
-        return false;
+  })
+    .then(res => res.json())
+    .then(data => {
+      data.data.map(item => {
+        let a = document.createElement('a'),
+          id = item.id,
+          name = lang === 'ar' ? item.nameAr : item.nameEn;
+        a.innerText = name;
+        a.addEventListener('click', e => {
+          e.stopPropagation();
+          input.value = id;
+          input.classList.add('valid');
+          btn.innerText = name;
+          dropdown.classList.remove('open');
+          if (callback) {
+            callback(id);
+          }
+          activateSubmitBtnSimple();
+          return false;
+        });
+        wrap.append(a);
       });
-      wrap.append(a);
+      if (data.data.length > 0) {
+        dropdown.classList.remove('disabled');
+      } else {
+        dropdown.classList.remove('disabled');
+        dropdown.classList.add('empty'); // Dropdown is empty
+        input.classList.add('valid');
+      }
     });
-    if (data.data.length > 0) {
-      dropdown.classList.remove('disabled');
-    } else {
-      dropdown.classList.remove('disabled');
-      dropdown.classList.add('empty'); // Dropdown is empty
-      input.classList.add('valid');
-    }
-  });
 }
 
 const geoDropdowns = document.querySelectorAll('.dropdown-geo');
@@ -190,21 +195,20 @@ const geoDropdowns = document.querySelectorAll('.dropdown-geo');
 geoDropdowns.forEach(item => {
   const btn = item.querySelector('button');
   btn.innerText = btn.dataset.default;
-  btn.addEventListener('click', (e) => {
+  btn.addEventListener('click', e => {
     item.classList.toggle('open');
     item.querySelector('input').value = '';
-    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
+    item.querySelectorAll('.dropdown-wrap a').forEach(a => {
       a.classList.remove('hide');
     });
     e.stopPropagation();
     e.preventDefault();
     return false;
   });
-  item.querySelector('input[type=text]').addEventListener('keyup', (e) => {
-    const
-        val = e.target.value.toString().trim(),
-        regexp = new RegExp(val.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
-    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
+  item.querySelector('input[type=text]').addEventListener('keyup', e => {
+    const val = e.target.value.toString().trim(),
+      regexp = new RegExp(val.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
+    item.querySelectorAll('.dropdown-wrap a').forEach(a => {
       if (!val || regexp.test(a.innerHTML)) {
         a.classList.remove('hide');
       } else {
@@ -214,12 +218,10 @@ geoDropdowns.forEach(item => {
   });
 });
 
-const
-    cityDropdown = document.querySelector('.dropdown-geo[data-param=city]'),
-    districtDropdown = document.querySelector('.dropdown-geo[data-param=district]');
-loadGetDropdown(cityDropdown, 'cities', (id) => {
+const cityDropdown = document.querySelector('.dropdown-geo[data-param=city]'),
+  districtDropdown = document.querySelector(
+    '.dropdown-geo[data-param=district]'
+  );
+loadGetDropdown(cityDropdown, 'cities', id => {
   loadGetDropdown(districtDropdown, 'districts?city=' + id);
 });
-
-
-

@@ -1,0 +1,62 @@
+.pre-order-phone-device {
+  padding: 100px 20px 60px;
+  .main-container {
+    background-color: #f3f3f1;
+    padding: 0;
+    border-radius: 8px;
+    .steps {
+      #pickDeviceColor,
+      #userInfoForm,
+      #confirmationMessage {
+        display: none;
+        padding: 40px 30px 20px;
+        h3 {
+          font-weight: 500;
+          margin-bottom: 30px;
+          color: #1d252d;
+          font-size: 24px;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+  &.first-step {
+    .steps #pickDeviceColor {
+      display: block;
+    }
+    #bookPhoneBtn {
+      display: flex !important;
+    }
+  }
+  &.second-step {
+    .steps #userInfoForm {
+      display: flex;
+    }
+    #submitUserDataBtn {
+      display: flex !important;
+    }
+  }
+  &.congrats {
+    .steps #confirmationMessage {
+      display: flex;
+    }
+    .submit-btn {
+      display: none;
+    }
+  }
+}
+
+// Confirmation msg
+#confirmationMessage {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  h2 {
+    margin: 40px 0 20px;
+  }
+  p {
+    font-size: 18px;
+  }
+}
