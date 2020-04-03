@@ -499,6 +499,7 @@ header .lang-switcher {
   border-right: 1px solid #dfe1e6;
   background-color: #dfe1e6;
   margin-left: -1px;
+  direction: ltr;
 }
 #userInfoForm .form-group .form-field input {
   width: 100%;
