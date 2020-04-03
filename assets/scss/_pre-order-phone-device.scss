@@ -38,7 +38,7 @@
       display: flex !important;
     }
   }
-  &.done {
+  &.congrats {
     .steps #confirmationMessage {
       display: flex;
     }
@@ -155,16 +155,28 @@
     label {
       margin-bottom: 8px;
     }
-    input {
-      height: 46px;
-      border: 1px solid #ccc;
-      padding: 5px 12px;
-      border-radius: 3px;
-      transition: all 0.2s ease-in-out;
-      position: relative;
-      z-index: 2;
-      &:focus {
-        border: 1px solid $mainColor;
+    .form-field {
+      display: flex;
+      .form-control-prepend {
+        padding: 0 8px;
+        display: flex;
+        align-items: center;
+        border-right: 1px solid rgb(223, 225, 230);
+        background-color: rgb(223, 225, 230);
+        margin-left: -1px;
+      }
+      input {
+        width: 100%;
+        height: 46px;
+        padding: 5px 12px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        z-index: 2;
+        &:focus {
+          border: 1px solid $mainColor;
+        }
       }
     }
     small {

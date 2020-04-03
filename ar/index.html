@@ -14,8 +14,21 @@
 
       gtag('config', 'UA-56827565-15');
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-WQ2NRFQ');
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2NRFQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
     <!-- Header -->
     <header>
       <div class="main-container flex align-center justify-between">
@@ -90,59 +103,70 @@
               <h3>فضلًا ادخل معلوماتك لإتمام الطلب</h3>
               <div class="form-group">
                 <label>الاسم الكامل</label>
-                <input
-                  required
-                  type="text"
-                  name="name"
-                  pattern=".{2,255}"
-                  data-err-msg="أكتب اسمك بشكل صحيح ( 2 - 255 ) حرف"
-                />
+                <div class="form-field">
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    pattern=".{2,255}"
+                    data-err-msg="أكتب اسمك بشكل صحيح ( 2 - 255 ) حرف"
+                  />
+                </div>
                 <small></small>
               </div>
               <div class="form-group">
                 <label>رقم الجوال</label>
-                <input
-                  required
-                  type="tel"
-                  minlength="9"
-                  maxlength="16"
-                  name="mobile"
-                  pattern="\+?[0-9]{9,15}"
-                  data-err-msg="من فضلك تأكد من كتابة رقم الجوال بشكل صحيح"
-                />
+                <div class="form-field">
+                  <div class="form-control-prepend">+966</div>
+                  <input
+                    required
+                    type="tel"
+                    minlength="9"
+                    maxlength="16"
+                    name="mobile"
+                    pattern="\+?[0-9]{9,15}"
+                    data-err-msg="من فضلك تأكد من كتابة رقم الجوال بشكل صحيح"
+                  />
+                </div>
                 <small></small>
               </div>
               <div class="form-group">
                 <label>البريد الالكترونى</label>
-                <input
-                  required
-                  type="email"
-                  name="email"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                  data-err-msg="من فضلك تأكد من كتابة البريد الالكترونى بشكل صحيح"
-                />
+                <div class="form-field">
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    data-err-msg="من فضلك تأكد من كتابة البريد الالكترونى بشكل صحيح"
+                  />
+                </div>
                 <small></small>
               </div>
               <div class="form-group">
                 <label>الحى</label>
-                <input
-                  required
-                  type="text"
-                  name="city"
-                  pattern=".{2,255}"
-                  data-err-msg="أكتب اسم الحى بشكل صحيح ( 2 - 255 ) حرف"
-                />
+                <div class="form-field">
+                  <input
+                    required
+                    type="text"
+                    name="city"
+                    pattern=".{2,255}"
+                    data-err-msg="أكتب اسم الحى بشكل صحيح ( 2 - 255 ) حرف"
+                  />
+                </div>
                 <small></small>
               </div>
               <div class="form-group">
                 <label>المدينة</label>
-                <input
-                  required
-                  type="text"
-                  name="district"
-                  pattern=".{2,255}"
-                  data-err-msg="أكتب اسم المدينة بشكل صحيح ( 2 - 255 ) حرف"
-                />
+                <div class="form-field">
+                  <input
+                    required
+                    type="text"
+                    name="district"
+                    pattern=".{2,255}"
+                    data-err-msg="أكتب اسم المدينة بشكل صحيح ( 2 - 255 ) حرف"
+                  />
+                </div>
                 <small></small>
               </div>
             </div>
