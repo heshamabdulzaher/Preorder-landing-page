@@ -26,10 +26,10 @@
     z-index: 2;
     background-color: #fff;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.16);
-    padding: 0 30px 30px;
+    padding: 0 30px;
     border-radius: 8px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     max-height: 100%;
     transform: translateY(80px);
     opacity: 0;
@@ -52,32 +52,13 @@
       }
     }
     .modal-body {
-      position: relative;
-      overflow-y: auto;
-      max-height: calc(100vh - 200px);
-      overflow-y: auto;
-      padding-left: 10px;
-      &::-webkit-scrollbar {
-        width: 5px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 10px;
-      }
       ol {
         padding: 25px;
-        ul {
-          padding: 25px 10px;
-          list-style-type: lower-roman;
-          ul {
-            list-style-type: disc;
-          }
+        li {
+          padding-right: 6px;
+          line-height: 26px;
+          margin-bottom: 16px;
         }
-      }
-      li {
-        padding-right: 6px;
-        line-height: 26px;
-        margin-bottom: 16px;
       }
     }
   }

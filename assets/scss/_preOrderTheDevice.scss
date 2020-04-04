@@ -80,6 +80,9 @@
     }
   }
   &.first-step {
+    #aboutDevice .device-details .features {
+      display: none;
+    }
     .steps #pickDeviceColor {
       display: block;
     }
