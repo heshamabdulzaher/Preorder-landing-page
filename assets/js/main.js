@@ -7,7 +7,7 @@ const preOrderPhoneSection = document.querySelector(
 function moveToSecondStep() {
   let selectedColor = document.querySelector('input[type=radio]#black').checked
     ? 'black'
-    : 'silver';
+    : 'silverFrost';
   submittedData.color = selectedColor;
   preOrderPhoneSection.classList.remove('first-step');
   preOrderPhoneSection.classList.add('second-step');
@@ -22,7 +22,7 @@ const submitBtn = document.querySelector('.submitUserDataBtn');
 const checkbox = document.querySelector('#accept-terms');
 checkbox.addEventListener('change', activateSubmitBtn);
 
-fields.forEach(inp => {
+fields.forEach((inp) => {
   inp.addEventListener('keyup', activateSubmitBtn);
   inp.addEventListener('blur', onBlur);
 });
@@ -35,7 +35,9 @@ function onBlur(e) {
     e.target.closest('.form-group').classList.add('invalid');
     if (e.target.value.trim() == '') {
       e.target.closest('.form-group').querySelector('small').innerHTML =
-        'هذا الحقل مطلوب لإتمام الطلب';
+        window.location.pathname === '/en/'
+          ? 'This field is required'
+          : 'هذا الحقل مطلوب لإتمام الطلب';
     } else {
       e.target
         .closest('.form-group')
@@ -58,7 +60,7 @@ function activateSubmitBtn(e) {
   }
   let inValidFields = [].some.call(
     fields,
-    inp => !inp.classList.contains('valid')
+    (inp) => !inp.classList.contains('valid')
   );
   // If all inputs are valid
   if (!inValidFields && checkbox.checked) {
@@ -73,7 +75,7 @@ function activateSubmitBtn(e) {
 submitBtn.addEventListener('click', submitUserData);
 function submitUserData() {
   submitBtn.classList.add('btn-spinner');
-  [].forEach.call(fields, inp => {
+  [].forEach.call(fields, (inp) => {
     if (inp.type !== 'checkbox') {
       submittedData[inp.getAttribute('name')] = inp.value;
     }
@@ -97,12 +99,12 @@ function submitUserData() {
     method: 'post',
     headers: {
       Accept: 'application/json, text/plain, */*',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(submittedData)
+    body: JSON.stringify(submittedData),
   })
-    .then(res => res.json())
-    .then(res => {
+    .then((res) => res.json())
+    .then((res) => {
       submitBtn.classList.remove('btn-spinner');
       document.querySelector('#userInfoForm').reset();
       if (res.success) {
@@ -111,12 +113,14 @@ function submitUserData() {
         document.querySelector('.alert-err-msg').classList.remove('show');
       } else {
         // Show alert error message and desActive submit-btn
+        console.log(res);
         document.querySelector('.alert-err-msg').classList.add('show');
         submitBtn.setAttribute('disabled', '');
         submitBtn.classList.remove('active');
       }
     })
-    .catch(e => {
+    .catch((e) => {
+      console.log(e);
       // Show alert error message and desActive submit-btn
       submitBtn.classList.remove('btn-spinner');
       document.querySelector('.alert-err-msg').classList.add('show');
@@ -130,7 +134,7 @@ function submitUserData() {
 function activateSubmitBtnSimple() {
   let inValidFields = [].some.call(
     fields,
-    inp => !inp.classList.contains('valid')
+    (inp) => !inp.classList.contains('valid')
   );
   if (!inValidFields && checkbox.checked) {
     submitBtn.removeAttribute('disabled');
@@ -155,17 +159,17 @@ function loadGetDropdown(dropdown, endpoint, callback) {
   fetch('https://p40.laywagif.com/api/' + endpoint, {
     method: 'get',
     headers: {
-      Accept: 'application/json, text/plain, */*'
-    }
+      Accept: 'application/json, text/plain, */*',
+    },
   })
-    .then(res => res.json())
-    .then(data => {
-      data.data.map(item => {
+    .then((res) => res.json())
+    .then((data) => {
+      data.data.map((item) => {
         let a = document.createElement('a'),
           id = item.id,
           name = lang === 'ar' ? item.nameAr : item.nameEn;
         a.innerText = name;
-        a.addEventListener('click', e => {
+        a.addEventListener('click', (e) => {
           e.stopPropagation();
           input.value = id;
           input.classList.add('valid');
@@ -191,23 +195,23 @@ function loadGetDropdown(dropdown, endpoint, callback) {
 
 const geoDropdowns = document.querySelectorAll('.dropdown-geo');
 
-geoDropdowns.forEach(item => {
+geoDropdowns.forEach((item) => {
   const btn = item.querySelector('button');
   btn.innerText = btn.dataset.default;
-  btn.addEventListener('click', e => {
+  btn.addEventListener('click', (e) => {
     item.classList.toggle('open');
     item.querySelector('input').value = '';
-    item.querySelectorAll('.dropdown-wrap a').forEach(a => {
+    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
       a.classList.remove('hide');
     });
     e.stopPropagation();
     e.preventDefault();
     return false;
   });
-  item.querySelector('input[type=text]').addEventListener('keyup', e => {
+  item.querySelector('input[type=text]').addEventListener('keyup', (e) => {
     const val = e.target.value.toString().trim(),
       regexp = new RegExp(val.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
-    item.querySelectorAll('.dropdown-wrap a').forEach(a => {
+    item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
       if (!val || regexp.test(a.innerHTML)) {
         a.classList.remove('hide');
       } else {
@@ -221,6 +225,6 @@ const cityDropdown = document.querySelector('.dropdown-geo[data-param=city]'),
   districtDropdown = document.querySelector(
     '.dropdown-geo[data-param=district]'
   );
-loadGetDropdown(cityDropdown, 'cities', id => {
+loadGetDropdown(cityDropdown, 'cities', (id) => {
   loadGetDropdown(districtDropdown, 'districts?city=' + id);
 });

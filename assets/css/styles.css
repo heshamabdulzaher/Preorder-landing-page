@@ -805,5 +805,13 @@ body.en #preOrderTheDeviceSection .submitUserDataBtn img {
 body.en .FAQs ul li .question .arrow-icon {
   transform: rotate(-90deg);
 }
+body.en #userInfoForm .form-group {
+  padding-right: 24px;
+  padding-left: 0;
+}
+body.en #userInfoForm .form-group small {
+  right: auto;
+  left: 0;
+}
 
 /*# sourceMappingURL=styles.css.map */

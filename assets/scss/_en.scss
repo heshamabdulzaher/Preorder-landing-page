@@ -12,4 +12,12 @@ body.en {
   .FAQs ul li .question .arrow-icon {
     transform: rotate(-90deg);
   }
+  #userInfoForm .form-group {
+    padding-right: 24px;
+    padding-left: 0;
+    small {
+      right: auto;
+      left: 0;
+    }
+  }
 }
