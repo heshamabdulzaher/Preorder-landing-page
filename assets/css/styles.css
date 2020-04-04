@@ -174,6 +174,7 @@ a {
 /* GeoDropdowns */
 .dropdown {
   position: relative;
+  width: 100%;
 }
 
 .dropdown.disabled {
@@ -189,6 +190,9 @@ a {
   border: 1px solid #ccc;
   padding: 5px 12px;
   border-radius: 3px;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
 }
 
 .dropdown .dropdown-wrap,
@@ -196,11 +200,29 @@ a {
   display: none;
   position: absolute;
   background: #fff;
-  box-shadow: 0 0 10px #000;
   left: 0;
   right: 0;
   max-height: 200px;
   overflow-y: auto;
+}
+.dropdown .dropdown-wrap.dropdown-wrap,
+.dropdown input[type=text].dropdown-wrap {
+  border-radius: 6px;
+  padding: 8px 0;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.12);
+  z-index: 3;
+}
+.dropdown .dropdown-wrap::-webkit-scrollbar,
+.dropdown input[type=text]::-webkit-scrollbar {
+  width: 12px;
+}
+.dropdown .dropdown-wrap::-webkit-scrollbar-thumb,
+.dropdown input[type=text]::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 4px solid #fff;
 }
 
 .dropdown.open button {
@@ -214,6 +236,12 @@ a {
 
 .dropdown-wrap a {
   display: block;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: all 0.12s ease-out;
+}
+.dropdown-wrap a:hover {
+  background-color: #eee;
 }
 
 .dropdown-wrap a.hide {
@@ -793,32 +821,6 @@ header .lang-switcher {
     width: 50%;
   }
 }
-body.en #pickDeviceColor .options label:first-of-type {
-  margin-left: 0;
-  margin-right: 50px;
-}
-body.en #preOrderTheDeviceSection .submitColorDeviceBtn img,
-body.en #preOrderTheDeviceSection .submitUserDataBtn img {
-  margin-right: 0;
-  margin-left: 16px;
-  transform: rotate(180deg);
-}
-body.en .FAQs ul li .question .arrow-icon {
-  transform: rotate(-90deg);
-}
-body.en #userInfoForm .form-group {
-  padding-right: 24px;
-  padding-left: 0;
-}
-body.en #userInfoForm .form-group small {
-  right: auto;
-  left: 0;
-}
-body.en .modal .content .modal-body {
-  padding-left: 0;
-  padding-right: 10px;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -909,6 +911,31 @@ body.en .modal .content .modal-body {
     transform: translateY(0);
     opacity: 1;
   }
+}
+body.en #pickDeviceColor .options label:first-of-type {
+  margin-left: 0;
+  margin-right: 50px;
+}
+body.en #preOrderTheDeviceSection .submitColorDeviceBtn img,
+body.en #preOrderTheDeviceSection .submitUserDataBtn img {
+  margin-right: 0;
+  margin-left: 16px;
+  transform: rotate(180deg);
+}
+body.en .FAQs ul li .question .arrow-icon {
+  transform: rotate(-90deg);
+}
+body.en #userInfoForm .form-group {
+  padding-right: 24px;
+  padding-left: 0;
+}
+body.en #userInfoForm .form-group small {
+  right: auto;
+  left: 0;
+}
+body.en .modal .content .modal-body {
+  padding-left: 0;
+  padding-right: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
