@@ -81,7 +81,7 @@ function submitUserData() {
     }
   });
   if (submittedData.mobile.substr(0, 1) !== '+') {
-    submittedData.mobile = '+' + submittedData.mobile;
+    submittedData.mobile = '+966' + submittedData.mobile;
   }
   if (submittedData.cityId) {
     submittedData.cityId = Number.parseInt(submittedData.cityId);
