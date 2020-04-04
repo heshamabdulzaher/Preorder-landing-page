@@ -26,11 +26,8 @@
     z-index: 2;
     background-color: #fff;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.16);
-    padding: 0 30px;
+    padding: 0 20px;
     border-radius: 8px;
-    width: 100%;
-    max-width: 800px;
-    max-height: 100%;
     transform: translateY(80px);
     opacity: 0;
     transition: all 0.3s ease-out;
@@ -38,8 +35,7 @@
     .modal-head {
       font-weight: 500;
       font-size: 19px;
-      height: 70px;
-      margin-top: 10px;
+      padding: 20px 0 10px;
       display: flex;
       align-items: center;
       border-bottom: 1px solid rgba(142, 154, 160, 0.3);

@@ -7,22 +7,28 @@
   .options {
     display: flex;
     label {
-      padding: 0 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       cursor: pointer;
       &:first-of-type {
-        margin-left: 50px;
+        margin-left: 80px;
       }
       .color-spot {
+        position: relative;
+        b {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 10px;
+        }
         span {
           width: 30px;
           height: 30px;
           border-radius: 50%;
           position: relative;
-          margin-bottom: 16px;
         }
       }
       input[type='radio'] {
@@ -33,11 +39,19 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(0.6);
+        opacity: 0;
         width: calc(100% + 8px);
         height: calc(100% + 8px);
         border-radius: 50%;
         border: 2px solid $S_color;
+        animation: scaleUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+      }
+      @keyframes scaleUp {
+        to {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
       }
       input:checked + .color-spot b {
         color: $S_color;

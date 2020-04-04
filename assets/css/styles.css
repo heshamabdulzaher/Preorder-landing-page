@@ -350,7 +350,6 @@ header .lang-switcher {
   display: flex;
 }
 #pickDeviceColor .options label {
-  padding: 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -358,14 +357,23 @@ header .lang-switcher {
   cursor: pointer;
 }
 #pickDeviceColor .options label:first-of-type {
-  margin-left: 50px;
+  margin-left: 80px;
+}
+#pickDeviceColor .options label .color-spot {
+  position: relative;
+}
+#pickDeviceColor .options label .color-spot b {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
 }
 #pickDeviceColor .options label .color-spot span {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   position: relative;
-  margin-bottom: 16px;
 }
 #pickDeviceColor .options label input[type=radio] {
   display: none;
@@ -375,11 +383,19 @@ header .lang-switcher {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
   width: calc(100% + 8px);
   height: calc(100% + 8px);
   border-radius: 50%;
   border: 2px solid #ff375e;
+  animation: scaleUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+@keyframes scaleUp {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }
 #pickDeviceColor .options label input:checked + .color-spot b {
   color: #ff375e;
@@ -600,11 +616,44 @@ header .lang-switcher {
   position: relative;
   padding-bottom: 60px;
 }
+#aboutDevice .phone-img {
+  background-color: transparent;
+  width: 100%;
+  height: 260px;
+  perspective: 1000px;
+  margin-bottom: 40px;
+}
+#aboutDevice .phone-img .flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-style: preserve-3d;
+}
+#aboutDevice .phone-img.silver .flip-card {
+  transform: rotateY(180deg);
+}
+#aboutDevice .phone-img .flip-card-front,
+#aboutDevice .phone-img .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#aboutDevice .phone-img .flip-card-front img,
+#aboutDevice .phone-img .flip-card-back img {
+  max-width: 100%;
+  max-height: 100%;
+}
+#aboutDevice .phone-img .flip-card-back {
+  transform: rotateY(180deg);
+}
 #aboutDevice .content {
   padding: 50px 30px 40px;
-}
-#aboutDevice .phone-img {
-  margin-bottom: 40px;
 }
 #aboutDevice p {
   color: #8e9aa0;
@@ -616,9 +665,9 @@ header .lang-switcher {
   font-weight: 500;
   font-size: 18px;
 }
-#aboutDevice h4 span {
-  color: #ff375e;
+#aboutDevice .price span {
   font-size: 24px;
+  color: #ff375e;
 }
 #aboutDevice .phone-name {
   font-weight: 600;
@@ -627,7 +676,7 @@ header .lang-switcher {
 #aboutDevice .device-details {
   margin-top: 30px;
 }
-#aboutDevice .features {
+#aboutDevice .properties {
   margin-bottom: 30px;
 }
 
@@ -720,7 +769,7 @@ header .lang-switcher {
   margin-right: 16px;
   width: 16px;
 }
-#preOrderTheDeviceSection.first-step #aboutDevice .device-details .features {
+#preOrderTheDeviceSection.first-step #aboutDevice .device-details .properties {
   display: none;
 }
 #preOrderTheDeviceSection.first-step .steps #pickDeviceColor {
@@ -815,20 +864,22 @@ header .lang-switcher {
   #preOrderTheDeviceSection .main-container #pickDeviceColor ul li {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   #preOrderTheDeviceSection .main-container #pickDeviceColor ul li h5 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   #preOrderTheDeviceSection .main-container #pickDeviceColor ul li:first-of-type .options {
     width: 100%;
+    padding-bottom: 20px;
+  }
+  #preOrderTheDeviceSection .main-container #pickDeviceColor ul li .options {
+    justify-content: center;
   }
   #preOrderTheDeviceSection .main-container #pickDeviceColor ul li .options label {
     padding: 0;
-    align-items: flex-start;
-    margin: 0 !important;
-    width: 50%;
+    margin: 0 40px;
   }
 }
 .modal {
@@ -860,11 +911,8 @@ header .lang-switcher {
   z-index: 2;
   background-color: #fff;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.16);
-  padding: 0 30px;
+  padding: 0 20px;
   border-radius: 8px;
-  width: 100%;
-  max-width: 800px;
-  max-height: 100%;
   transform: translateY(80px);
   opacity: 0;
   transition: all 0.3s ease-out;
@@ -873,8 +921,7 @@ header .lang-switcher {
 .modal .content .modal-head {
   font-weight: 500;
   font-size: 19px;
-  height: 70px;
-  margin-top: 10px;
+  padding: 20px 0 10px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(142, 154, 160, 0.3);

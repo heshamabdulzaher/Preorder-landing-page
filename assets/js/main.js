@@ -11,6 +11,12 @@ function moveToSecondStep() {
   submittedData.color = selectedColor;
   preOrderPhoneSection.classList.remove('first-step');
   preOrderPhoneSection.classList.add('second-step');
+  let colorName = document.querySelector('#aboutDevice .properties span.color');
+  if (window.location.pathname === '/en/') {
+    colorName.innerHTML = selectedColor === 'black' ? 'Black' : 'Silver';
+  } else {
+    colorName.innerHTML = selectedColor === 'black' ? 'أسود' : 'فضى';
+  }
 }
 
 // On the second step let's begin with validation
@@ -50,12 +56,14 @@ function onBlur(e) {
 
 function activateSubmitBtn(e) {
   // Check if the input valid, if yes add new class 'valid'
-  if (e.target.type != 'checkbox') {
-    if (e.target.checkValidity()) {
-      e.target.closest('.form-group').classList.remove('invalid');
-      e.target.classList.add('valid');
-    } else {
-      e.target.classList.remove('valid');
+  if (e && e.target) {
+    if (e.target.type != 'checkbox') {
+      if (e.target.checkValidity()) {
+        e.target.closest('.form-group').classList.remove('invalid');
+        e.target.classList.add('valid');
+      } else {
+        e.target.classList.remove('valid');
+      }
     }
   }
   let inValidFields = [].some.call(
@@ -129,22 +137,6 @@ function submitUserData() {
     });
 }
 
-/* Geo Dropdowns */
-
-function activateSubmitBtnSimple() {
-  let inValidFields = [].some.call(
-    fields,
-    (inp) => !inp.classList.contains('valid')
-  );
-  if (!inValidFields && checkbox.checked) {
-    submitBtn.removeAttribute('disabled');
-    submitBtn.classList.add('active');
-  } else {
-    submitBtn.setAttribute('disabled', '');
-    submitBtn.classList.remove('active');
-  }
-}
-
 function loadGetDropdown(dropdown, endpoint, callback) {
   let lang = dropdown.dataset.lang;
   let wrap = dropdown.querySelector('.dropdown-wrap');
@@ -178,7 +170,7 @@ function loadGetDropdown(dropdown, endpoint, callback) {
           if (callback) {
             callback(id);
           }
-          activateSubmitBtnSimple();
+          activateSubmitBtn();
           return false;
         });
         wrap.append(a);
@@ -237,4 +229,9 @@ function openModal(id) {
 function closeModal() {
   let modal = document.querySelector('.modal');
   modal.classList.remove('open');
+}
+
+// Flip Phone Img Animation
+function FlipPhoneImg() {
+  document.querySelector('#aboutDevice .phone-img').classList.toggle('silver');
 }

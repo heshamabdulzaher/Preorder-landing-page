@@ -88,14 +88,14 @@
                 <h5>Color</h5>
                 <div class="options">
                   <label for="black">
-                    <input type="radio" id="black" name="color" value="black" checked>
+                    <input type="radio" id="black" name="color" value="black" checked onchange="FlipPhoneImg()">
                     <div class="color-spot flex direction-column">
                       <span style="background-image: linear-gradient(to bottom, #A19FA6 0, #000 100%);"></span>
                       <b>Black</b>
                     </div>
                   </label>
                   <label for="silver">
-                    <input type="radio" id="silver" name="color" value="silver">
+                    <input type="radio" id="silver" name="color" value="silver" onchange="FlipPhoneImg()">
                     <div class="color-spot flex direction-column">
                       <span style="background-image: linear-gradient(to bottom, #E0E4E4 0, #505458 100%);"></span>
                       <b>Silver</b>
@@ -212,11 +212,20 @@
         </div>
         <div id="aboutDevice">
           <div class="content">
-            <img src="/assets/img/phone/2.png" alt="smart phones image" class="phone-img" />
+            <div class="phone-img">
+              <div class="flip-card">
+                <div class="flip-card-front">
+                  <img src="/assets/img/phone/black.png" alt="Huawei_P40 Black" />
+                </div>
+                <div class="flip-card-back">
+                  <img src="/assets/img/phone/silver.png" alt="Huawei_P40 Silver" />
+                </div>
+              </div>
+            </div>
             <div class="phone-name">Huawei P40 Pro 5G</div>
             <div class="device-details">
-              <div class="features">
-                <h4>Black, 256 GB</h4>
+              <div class="properties">
+                <h4><span class="color"></span>, 256 GB</h4>
                 <p>Includes gifts worth 1999 riyals</p>
               </div>
               <div class="price">
