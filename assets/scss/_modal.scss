@@ -1,0 +1,91 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 30px;
+  display: none;
+  &.open {
+    display: flex;
+  }
+  .modal-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.16);
+    padding: 0 30px 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 1200px;
+    max-height: 100%;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    animation: fadeInUp 0.3s ease-out forwards;
+    .modal-head {
+      font-weight: 500;
+      font-size: 19px;
+      height: 70px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(142, 154, 160, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .close {
+        width: 50px;
+        cursor: pointer;
+      }
+    }
+    .modal-body {
+      position: relative;
+      overflow-y: auto;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+      padding-left: 10px;
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+      }
+      ol {
+        padding: 25px;
+        ul {
+          padding: 25px 10px;
+          list-style-type: lower-roman;
+          ul {
+            list-style-type: disc;
+          }
+        }
+      }
+      li {
+        padding-right: 6px;
+        line-height: 26px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -82,9 +82,10 @@
     input {
       margin-left: 10px;
     }
-    a {
+    button {
       color: $S_color;
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }

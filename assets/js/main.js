@@ -228,3 +228,13 @@ const cityDropdown = document.querySelector('.dropdown-geo[data-param=city]'),
 loadGetDropdown(cityDropdown, 'cities', (id) => {
   loadGetDropdown(districtDropdown, 'districts?city=' + id);
 });
+
+// Show & close modal
+function openModal(id) {
+  let modal = document.querySelector(`#${id}`);
+  modal.classList.add('open');
+}
+function closeModal() {
+  let modal = document.querySelector('.modal');
+  modal.classList.remove('open');
+}
