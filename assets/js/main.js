@@ -191,7 +191,6 @@ geoDropdowns.forEach((item) => {
   const btn = item.querySelector('button');
   btn.innerText = btn.dataset.default;
   btn.addEventListener('click', (e) => {
-    console.log();
     let otherDataParam =
       item.getAttribute('data-param') === 'city' ? 'district' : 'city';
     let otherDropdown = document.querySelector(
@@ -211,7 +210,6 @@ geoDropdowns.forEach((item) => {
     const val = e.target.value.toString().trim(),
       regexp = new RegExp(val.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'i');
     item.querySelectorAll('.dropdown-wrap a').forEach((a) => {
-      console.log(a, val);
       if (!val || regexp.test(a.innerHTML)) {
         a.classList.remove('hide');
       } else {

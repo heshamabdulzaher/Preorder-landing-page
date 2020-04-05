@@ -533,6 +533,7 @@ header .lang-switcher {
 
 .dropdown.disabled {
   opacity: 0.3;
+  pointer-events: none;
 }
 
 .dropdown.empty {
