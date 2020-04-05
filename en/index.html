@@ -48,11 +48,11 @@
     <!-- End Header -->
     <!-- Terms and conditions modal -->
     <div id="terms-and-conditions-modal-en" class="modal">
-      <div class="modal-layer" onclick="closeModal()"></div>
+      <div class="modal-layer" onclick="closeModal('terms-and-conditions-modal-en')"></div>
       <div class="content">
         <div class="modal-head">
           <h4>Terms & Conditions of Pre-registering devices</h4>
-          <img class="close" src="/assets/img/icons/close-outline.svg" alt="close-outline icon" onclick="closeModal()">
+          <img class="close" src="/assets/img/icons/close-outline.svg" alt="close-outline icon" onclick="closeModal('terms-and-conditions-modal-en')">
         </div>
         <div class="modal-body">
           <ol>
@@ -64,6 +64,38 @@
       </div>
     </div>
     <!-- Terms and conditions modal -->
+    <!-- Gifts modal -->
+    <div id="gifts-modal" class="modal">
+      <div class="modal-layer" onclick="closeModal('gifts-modal')"></div>
+      <div class="content">
+        <div class="modal-head">
+          
+          <div class="title"></div>
+          <span class="price"></span>
+          <img class="close" src="/assets/img/icons/close-outline.svg" alt="close-outline icon" onclick="closeModal('gifts-modal')">
+        </div>
+        <div class="modal-body">
+          <div class="active-img">
+            <img src="/assets/img/gifts/HUAWEI-mobile-cloud.jpg" alt="">
+          </div>
+          <div class="other-gifts-images">
+            <div class="flex flex-center">
+              <img src="/assets/img/gifts/freeBuds.jpg" class="freeBuds" alt="FreeBuds 3 white" data-price="599" onclick="activateImage(event, 'freeBuds')">
+            </div>
+            <div class="flex flex-center">
+              <img src="/assets/img/gifts/superCharge.jpg" class="superCharge" alt="SuperCharge Wireless Car Charger" data-price="300" onclick="activateImage(event, 'superCharge')">
+            </div>
+            <div class="flex flex-center">
+              <img src="/assets/img/gifts/HUAWEI-mobile-cloud.jpg" class="HUAWEI-mobile-cloud" alt="1 Year HUAWEI Mobile Cloud 50GB Storage guide card" data-price="100" onclick="activateImage(event, 'HUAWEI-mobile-cloud')">
+            </div>
+            <div class="flex flex-center">
+              <img src="/assets/img/gifts/VIP-service.jpg" class="VIP-service" alt="VIP service 6months screen warranty" data-price="1000" onclick="activateImage(event, 'VIP-service')">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Gifts modal -->
     <!-- Hero banner -->
     <section class="hero-banner">
       <div class="main-container flex justify-between">
@@ -122,6 +154,20 @@
                 <div class="options flex direction-column">
                   <div class="outline-option" style="display: block;">With a gift package</div>
                   <small><span>Free gifts</span> worth SR 1999</small>
+                </div>
+                <div class="gifts">
+                  <div class="flex flex-center">
+                    <img src="/assets/img/gifts/freeBuds.jpg" class="freeBuds" alt="FreeBuds 3 white" data-price="599" onclick="openModal('gifts-modal'); activateImage(event, 'freeBuds')">
+                  </div>
+                  <div class="flex flex-center">
+                    <img src="/assets/img/gifts/superCharge.jpg" class="superCharge" alt="SuperCharge Wireless Car Charger" data-price="300" onclick="openModal('gifts-modal'); activateImage(event, 'superCharge')">
+                  </div>
+                  <div class="flex flex-center">
+                    <img src="/assets/img/gifts/HUAWEI-mobile-cloud.jpg" class="HUAWEI-mobile-cloud" alt="1 Year HUAWEI Mobile Cloud 50GB Storage guide card" data-price="100" onclick="openModal('gifts-modal'); activateImage(event, 'HUAWEI-mobile-cloud')">
+                  </div>
+                  <div class="flex flex-center">
+                    <img src="/assets/img/gifts/VIP-service.jpg" class="VIP-service" alt="VIP service 6months screen warranty" data-price="1000" onclick="openModal('gifts-modal'); activateImage(event, 'VIP-service')">
+                  </div>
                 </div>
               </li>
             </ul>

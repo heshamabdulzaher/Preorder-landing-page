@@ -232,7 +232,32 @@ function openModal(id) {
   let modal = document.querySelector(`#${id}`);
   modal.classList.add('open');
 }
-function closeModal() {
-  let modal = document.querySelector('.modal');
+function closeModal(id) {
+  console.log('......', id);
+  let modal = document.querySelector(`#${id}`);
   modal.classList.remove('open');
+}
+
+// Activate image
+function activateImage(e, imgClass) {
+  // Update Active Image
+  let activeImg = document.querySelector('#gifts-modal .active-img');
+  activeImg.innerHTML = `<img src="${e.target.src}" alt="${
+    e.target.alt
+  }" data-price="${e.target.getAttribute('data-price')}" >`;
+  // Update title
+  let modalTitle = document.querySelector('#gifts-modal .title');
+  modalTitle.innerHTML = e.target.alt;
+  let modalPrice = document.querySelector('#gifts-modal .price');
+  modalPrice.innerHTML = e.target.getAttribute('data-price');
+
+  // Remove active class
+  let otherImgs = document.querySelectorAll(
+    '#gifts-modal .other-gifts-images img'
+  );
+  otherImgs.forEach((img) => img.classList.remove('active'));
+  // Add active Class
+  document
+    .querySelector(`#gifts-modal img.${e.target.className}`)
+    .classList.add('active');
 }
