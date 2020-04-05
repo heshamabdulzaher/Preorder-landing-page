@@ -3,7 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pre_Order</title>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Huawei P40 Pro 5G - Preorder">
+    <meta property="og:title" content="Huawei P40 Pro 5G - Preorder" />
+    <meta property="og:description" content="Pre-order begins on April 5 at 12 AM .. Ends on April 14 at 11:49 PM" />
+    <meta property="og:url" content="https://p40.laywagif.com/"/>
+    <title>Huawei P40 Pro 5G - Preorder</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <link rel="stylesheet" href="/assets/css/styles.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56827565-15"></script>
@@ -129,7 +136,7 @@
                     type="text"
                     name="name"
                     pattern=".{2,255}"
-                    data-err-msg="Type your name correctly (2 - 255) characters"
+                    data-err-msg="Type your name correctly, 2 characters minimum"
                   />
                 </div>
                 <small></small>
@@ -144,8 +151,8 @@
                     minlength="9"
                     maxlength="10"
                     name="mobile"
-                    pattern="\+?[0-9]{9,15}"
-                    data-err-msg="Please make sure that the mobile number is written correctly"
+                    pattern="5\+?[0-9]{8,9}"
+                    data-err-msg="Incorrect Saudi mobile number"
                   />
                 </div>
                 <small></small>
@@ -157,8 +164,8 @@
                     required
                     type="email"
                     name="email"
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    data-err-msg="Please make sure to write the email correctly"
+                    pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    data-err-msg="Incorrect email"
                   />
                 </div>
                 <small></small>
@@ -166,7 +173,7 @@
               <div class="form-group">
                 <label>City</label>
                 <div class="form-field">
-                  <div class="dropdown dropdown-geo disabled" data-param="city" data-lang="en">
+                  <div class="dropdown dropdown-geo" data-param="city" data-lang="en">
                     <button data-default="Select city"></button>
                     <input type="text" />
                     <input type="hidden" name="cityId" />

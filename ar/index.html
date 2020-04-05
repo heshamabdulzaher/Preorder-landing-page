@@ -135,8 +135,8 @@
                     required
                     type="text"
                     name="name"
-                    pattern=".{2,255}"
-                    data-err-msg="أكتب اسمك بشكل صحيح ( 2 - 255 ) حرف"
+                    pattern=".{2,100}"
+                    data-err-msg="أكتب أسمك بحيث لا يقل عن حرفين"
                   />
                 </div>
                 <small></small>
@@ -150,8 +150,8 @@
                   minlength="9"
                   maxlength="10"
                   name="mobile"
-                  pattern="\+?[0-9]{9,15}"
-                  data-err-msg="من فضلك تأكد من كتابة رقم الجوال بشكل صحيح"
+                  pattern="5\+?[0-9]{9,15}"
+                  data-err-msg="رقم جوال سعودى غير صحيح"
                   />
                   <div class="form-control-prepend">+966</div>
                 </div>
@@ -165,7 +165,7 @@
                     type="email"
                     name="email"
                     pattern="[a-z0-9A-Z._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    data-err-msg="من فضلك تأكد من كتابة البريد الالكترونى بشكل صحيح"
+                    data-err-msg="بريد الاكترونى خاطئ"
                   />
                 </div>
                 <small></small>
