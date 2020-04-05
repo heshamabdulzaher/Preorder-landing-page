@@ -261,3 +261,9 @@ function activateImage(e, imgClass) {
     .querySelector(`#gifts-modal img.${e.target.className}`)
     .classList.add('active');
 }
+
+// Change Phone Color
+function changePhoneColor() {
+  let phoneImgContainer = document.querySelector('#aboutDevice .phone-img');
+  phoneImgContainer.classList.toggle('silver');
+}

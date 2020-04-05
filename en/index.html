@@ -69,7 +69,6 @@
       <div class="modal-layer" onclick="closeModal('gifts-modal')"></div>
       <div class="content">
         <div class="modal-head">
-          
           <div class="title"></div>
           <span class="price"></span>
           <img class="close" src="/assets/img/icons/close-outline.svg" alt="close-outline icon" onclick="closeModal('gifts-modal')">
@@ -128,14 +127,14 @@
                 <h5>Color</h5>
                 <div class="options">
                   <label for="black">
-                    <input type="radio" id="black" name="color" value="black" checked>
+                    <input type="radio" id="black" name="color" value="black" checked onchange="changePhoneColor()">
                     <div class="color-spot flex direction-column">
                       <span style="background-image: linear-gradient(to bottom, #A19FA6 0, #000 100%);"></span>
                       <b>Black</b>
                     </div>
                   </label>
                   <label for="silver">
-                    <input type="radio" id="silver" name="color" value="silver">
+                    <input type="radio" id="silver" name="color" value="silver" onchange="changePhoneColor()">
                     <div class="color-spot flex direction-column">
                       <span style="background-image: linear-gradient(to bottom, #E0E4E4 0, #505458 100%);"></span>
                       <b>Silver</b>
@@ -267,7 +266,8 @@
         <div id="aboutDevice">
           <div class="content">
             <div class="phone-img">
-              <img src="/assets/img/phone/black.png" alt="Huawei_P40 Black" />
+              <img src="/assets/img/phone/black.png" data-color="black" alt="Huawei_P40 Black" />
+              <img src="/assets/img/phone/silver.png" data-color="silver" alt="Huawei_P40 Silver" />
             </div>
             <div class="phone-name">Huawei P40 Pro 5G</div>
             <div class="device-details">

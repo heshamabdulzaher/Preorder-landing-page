@@ -648,9 +648,18 @@ header .lang-switcher {
   height: 260px;
   margin-bottom: 40px;
 }
+#aboutDevice .phone-img.silver img[data-color=silver] {
+  display: block;
+}
+#aboutDevice .phone-img.silver img[data-color=black] {
+  display: none;
+}
 #aboutDevice .phone-img img {
   max-width: 100%;
   max-height: 100%;
+}
+#aboutDevice .phone-img img[data-color=silver] {
+  display: none;
 }
 #aboutDevice .content {
   padding: 50px 30px 40px;
