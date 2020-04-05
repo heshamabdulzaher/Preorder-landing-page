@@ -65,6 +65,17 @@
     }
   }
 }
+@media screen and (max-width: 520px) {
+  .hero-banner .main-container {
+    .actions {
+      flex-direction: column;
+      .outline-btn,
+      .main-btn {
+        margin: 10px 0 !important;
+      }
+    }
+  }
+}
 @media screen and (max-width: 460px) {
   .hero-banner .main-container {
     .content {

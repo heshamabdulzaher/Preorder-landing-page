@@ -263,6 +263,15 @@ header .lang-switcher {
     max-width: 100%;
   }
 }
+@media screen and (max-width: 520px) {
+  .hero-banner .main-container .actions {
+    flex-direction: column;
+  }
+  .hero-banner .main-container .actions .outline-btn,
+.hero-banner .main-container .actions .main-btn {
+    margin: 10px 0 !important;
+  }
+}
 @media screen and (max-width: 460px) {
   .hero-banner .main-container .content h1 {
     font-size: 30px;
