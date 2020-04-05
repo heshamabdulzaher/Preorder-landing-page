@@ -452,7 +452,7 @@ header .lang-switcher {
 #pickDeviceColor .gifts {
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 #pickDeviceColor .gifts > div {
   width: 60px;
@@ -656,6 +656,9 @@ header .lang-switcher {
 #aboutDevice .phone-img {
   height: 260px;
   margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #aboutDevice .phone-img.silver img[data-color=silver] {
   display: block;
@@ -948,8 +951,8 @@ header .lang-switcher {
   overflow-y: auto;
 }
 .modal .content .modal-head {
-  font-weight: 500;
-  font-size: 19px;
+  font-weight: 500 !important;
+  font-size: 18px;
   padding: 20px 0 10px;
   display: flex;
   align-items: center;
@@ -962,11 +965,15 @@ header .lang-switcher {
   width: 40px;
   cursor: pointer;
 }
-.modal .content .modal-head span.price {
+.modal .content .modal-head .title {
+  display: flex;
+  align-items: center;
+}
+.modal .content .modal-head .title span.price {
   margin: 0 20px;
   color: #ff375e;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 24px;
   font-style: italic;
   text-decoration: line-through;
 }
@@ -1002,10 +1009,10 @@ header .lang-switcher {
 .modal .content .modal-body .other-gifts-images > div img {
   max-width: 100%;
   max-height: 100%;
-}
-.modal .content .modal-body .other-gifts-images > div img.active {
   padding: 6px;
   border-radius: 3px;
+}
+.modal .content .modal-body .other-gifts-images > div img.active {
   border: 2px solid #4f008c;
 }
 
@@ -1039,6 +1046,10 @@ body.en #userInfoForm .form-group small {
 body.en .modal .content .modal-body {
   padding-left: 0;
   padding-right: 10px;
+}
+body.en #pickDeviceColor .gifts {
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 /*# sourceMappingURL=styles.css.map */

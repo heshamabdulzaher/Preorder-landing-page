@@ -246,10 +246,10 @@ function activateImage(e, imgClass) {
     e.target.alt
   }" data-price="${e.target.getAttribute('data-price')}" >`;
   // Update title
-  let modalTitle = document.querySelector('#gifts-modal .title');
+  let modalTitle = document.querySelector('#gifts-modal .title h3');
   modalTitle.innerHTML = e.target.alt;
   let modalPrice = document.querySelector('#gifts-modal .price');
-  modalPrice.innerHTML = e.target.getAttribute('data-price');
+  modalPrice.innerHTML = e.target.getAttribute('data-price') + 'SR';
 
   // Remove active class
   let otherImgs = document.querySelectorAll(

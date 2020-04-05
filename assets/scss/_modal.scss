@@ -47,8 +47,8 @@
     overflow-y: auto;
 
     .modal-head {
-      font-weight: 500;
-      font-size: 19px;
+      font-weight: 500 !important;
+      font-size: 18px;
       padding: 20px 0 10px;
       display: flex;
       align-items: center;
@@ -60,13 +60,17 @@
         width: 40px;
         cursor: pointer;
       }
-      span.price {
-        margin: 0 20px;
-        color: $S_color;
-        font-weight: 400;
-        font-size: 30px;
-        font-style: italic;
-        text-decoration: line-through;
+      .title {
+        display: flex;
+        align-items: center;
+        span.price {
+          margin: 0 20px;
+          color: $S_color;
+          font-weight: 400;
+          font-size: 24px;
+          font-style: italic;
+          text-decoration: line-through;
+        }
       }
     }
     .modal-body {
@@ -98,9 +102,9 @@
           img {
             max-width: 100%;
             max-height: 100%;
+            padding: 6px;
+            border-radius: 3px;
             &.active {
-              padding: 6px;
-              border-radius: 3px;
               border: 2px solid $mainColor;
             }
           }
