@@ -1,36 +1,36 @@
 const FAQs = {
   en: [
     {
-      question: 'What happen to the customer form information?',
+      question: 'I sent my Pre-registration form, what’s next?',
       answer:
-        'It will be passed to our tele sales team who calls the customer and complete the pre-booking order.'
+        'We will contact you using the contact details in the form to complete your order.',
     },
     {
-      question: 'Where can the customer get his device?',
+      question: 'When and where can I get my device?',
       answer:
-        'The tele sales agent will advise the customer either to pick up his devices from one of the stores or deliver it to him (based on the customer location).'
+        'The devices will be available starting April 15 2020, and we will deliver the device to the customer or advise himher to pick it up from one of our stores (based on the customer location).',
     },
     {
       question: 'Is the gift coming with the devices any ways?',
-      answer: 'No, the gift is with the pre-registration orders only.'
-    }
+      answer: 'No, the gift is with the pre-registration orders only.',
+    },
   ],
   ar: [
     {
-      question: 'ماذا يحدث لمعلومات نموذج العميل؟',
+      question: 'قمت بإرسال طلب حجز الجهاز، ما هي الخطوة القادمة؟',
       answer:
-        'يتم إيصالها إلى فريق المبيعات الذي يتصل بالعميل لإكمال طلب الحجز المسبق.'
+        'سنقوم بالتواصل معك من خلال معلومات الاتصال المقدمة في طلب حجز الجهاز لإتمام الطلب و تأكيد الحجز',
     },
     {
-      question: 'من أين يحصل العميل على جهازه؟',
+      question: 'متى و كيف احصل على جهازي؟',
       answer:
-        'سيقوم موظف المبيعات بإرشاد العميل إلى استلام جهازه من أحد الفروع أو توصيله له (بناءً على موقع العميل).'
+        'سيكون الجهاز متوفرا ابتداء من تاريخ 15 ابريل 2020 ، و سيتم توصيل الجهاز للعميل او ارساله لاحد الفروع لاستلامه من الفرع (حسب موقع العميل)',
     },
     {
       question: 'هل تقدم الهدية مع الأجهزة في كل الأحوال؟',
-      answer: 'لا، الهدية مع طلبات التسجيل المسبق فقط'
-    }
-  ]
+      answer: 'لا، الهدية مع طلبات التسجيل المسبق فقط',
+    },
+  ],
 };
 
 let lang;
@@ -72,7 +72,7 @@ const animatedElements = document.querySelectorAll('.has-animation');
 document.addEventListener('scroll', fireAnimations);
 
 function fireAnimations() {
-  animatedElements.forEach(el => {
+  animatedElements.forEach((el) => {
     if (el.offsetTop + 100 < window.scrollY + window.innerHeight) {
       el.classList.add('animated');
       el.classList.remove('has-animation');
