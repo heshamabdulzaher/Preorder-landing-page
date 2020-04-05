@@ -48,7 +48,7 @@
 
     .modal-head {
       font-weight: 500 !important;
-      font-size: 18px;
+      font-size: 16px;
       padding: 20px 0 10px;
       display: flex;
       align-items: center;
@@ -67,7 +67,7 @@
           margin: 0 20px;
           color: $S_color;
           font-weight: 400;
-          font-size: 24px;
+          font-size: 20px;
           font-style: italic;
           text-decoration: line-through;
         }
@@ -84,7 +84,7 @@
         }
       }
       .active-img img {
-        max-height: 300px;
+        max-height: 200px;
       }
       .other-gifts-images {
         display: flex;
@@ -96,7 +96,6 @@
           background-color: #fff;
           border-radius: 3px;
           overflow: hidden;
-          padding: 10px;
           margin: 0 4px;
           cursor: pointer;
           img {
@@ -118,5 +117,22 @@
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .modal {
+    .content {
+      .modal-head {
+        align-items: flex-start;
+        .title {
+          flex-direction: column;
+          align-items: start !important;
+          .price {
+            margin: 12px 0 0 !important;
+          }
+        }
+      }
+    }
   }
 }

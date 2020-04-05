@@ -952,7 +952,7 @@ header .lang-switcher {
 }
 .modal .content .modal-head {
   font-weight: 500 !important;
-  font-size: 18px;
+  font-size: 16px;
   padding: 20px 0 10px;
   display: flex;
   align-items: center;
@@ -973,7 +973,7 @@ header .lang-switcher {
   margin: 0 20px;
   color: #ff375e;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
   font-style: italic;
   text-decoration: line-through;
 }
@@ -989,7 +989,7 @@ header .lang-switcher {
   margin-bottom: 16px;
 }
 .modal .content .modal-body .active-img img {
-  max-height: 300px;
+  max-height: 200px;
 }
 .modal .content .modal-body .other-gifts-images {
   display: flex;
@@ -1002,7 +1002,6 @@ header .lang-switcher {
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
-  padding: 10px;
   margin: 0 4px;
   cursor: pointer;
 }
@@ -1020,6 +1019,18 @@ header .lang-switcher {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal .content .modal-head {
+    align-items: flex-start;
+  }
+  .modal .content .modal-head .title {
+    flex-direction: column;
+    align-items: start !important;
+  }
+  .modal .content .modal-head .title .price {
+    margin: 12px 0 0 !important;
   }
 }
 body.en #pickDeviceColor .options label:first-of-type {
