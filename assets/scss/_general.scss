@@ -40,6 +40,9 @@ a {
   display: inline-block;
   color: $txtColor;
 }
+img {
+  max-width: 100%;
+}
 
 // main-container
 .main-container {

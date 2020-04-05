@@ -129,6 +129,10 @@ a {
   color: #1d252d;
 }
 
+img {
+  max-width: 100%;
+}
+
 .main-container {
   max-width: 1100px;
   width: 100%;
@@ -224,6 +228,9 @@ header .lang-switcher {
   font-size: 20px;
   line-height: 38px;
   margin-bottom: 40px;
+}
+.hero-banner .content .outline-btn {
+  margin: 0 20px;
 }
 
 @media screen and (max-width: 1000px) {
