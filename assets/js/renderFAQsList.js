@@ -8,7 +8,7 @@ const FAQs = {
     {
       question: 'When and where can I get my device?',
       answer:
-        'The devices will be available starting April 15 2020, and we will deliver the device to the customer or advise himher to pick it up from one of our stores (based on the customer location).',
+        'The devices will be available starting April 15 2020, and we will deliver the device to the customer or advise him to pick it up from one of our stores (based on the customer location).',
     },
     {
       question: 'Is the gift coming with the devices any ways?',

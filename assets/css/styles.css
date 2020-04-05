@@ -989,7 +989,7 @@ header .lang-switcher {
   margin-bottom: 16px;
 }
 .modal .content .modal-body .active-img img {
-  max-height: 400px;
+  max-height: 300px;
 }
 .modal .content .modal-body .other-gifts-images {
   display: flex;
