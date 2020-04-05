@@ -230,8 +230,3 @@ function closeModal() {
   let modal = document.querySelector('.modal');
   modal.classList.remove('open');
 }
-
-// Flip Phone Img Animation
-function FlipPhoneImg() {
-  document.querySelector('#aboutDevice .phone-img').classList.toggle('silver');
-}
