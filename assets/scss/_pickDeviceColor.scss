@@ -75,6 +75,7 @@
     border-radius: 100px;
     background-color: #fff;
     box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
   }
   ul {
     padding-right: 20px;
@@ -87,6 +88,24 @@
       border-bottom: 1px solid rgba(142, 154, 160, 0.3);
       &:last-of-type {
         border-bottom: 0;
+      }
+    }
+  }
+  .gifts {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    > div {
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+      border-radius: 3px;
+      overflow: hidden;
+      padding: 4px;
+      margin: 0 4px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
       }
     }
   }
