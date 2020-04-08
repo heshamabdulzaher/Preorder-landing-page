@@ -101,6 +101,7 @@ function submitUserData() {
   } else {
     submittedData.districtId = null;
   }
+  submittedData.recaptchaToken = window.recaptchaToken;
 
   console.log(submittedData);
   fetch('https://p40.laywagif.com/api/preorders', {
