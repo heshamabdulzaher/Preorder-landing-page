@@ -80,7 +80,14 @@ function activateSubmitBtn(e) {
   }
 }
 
-submitBtn.addEventListener('click', submitUserData);
+submitBtn.addEventListener('click', function () {
+  if (grecaptcha) {
+    grecaptcha.ready(submitUserData);
+  } else {
+    submitUserData
+  }
+});
+
 function submitUserData() {
   submitBtn.classList.add('btn-spinner');
   [].forEach.call(fields, (inp) => {
@@ -102,38 +109,41 @@ function submitUserData() {
     submittedData.districtId = null;
   }
 
-  console.log(submittedData);
-  fetch('https://p40.laywagif.com/api/preorders', {
-    method: 'post',
-    headers: {
-      Accept: 'application/json, text/plain, */*',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(submittedData),
-  })
-    .then((res) => res.json())
-    .then((res) => {
-      submitBtn.classList.remove('btn-spinner');
-      document.querySelector('#userInfoForm').reset();
-      if (res.success) {
-        preOrderPhoneSection.classList.remove('second-step');
-        preOrderPhoneSection.classList.add('congrats');
-        document.querySelector('.alert-err-msg').classList.remove('show');
-      } else {
-        // Show alert error message and desActive submit-btn
-        console.log(res);
-        document.querySelector('.alert-err-msg').classList.add('show');
-        submitBtn.setAttribute('disabled', '');
-        submitBtn.classList.remove('active');
-      }
-    })
-    .catch((e) => {
-      console.log(e);
-      // Show alert error message and desActive submit-btn
-      submitBtn.classList.remove('btn-spinner');
-      document.querySelector('.alert-err-msg').classList.add('show');
-      submitBtn.setAttribute('disabled', '');
-      submitBtn.classList.remove('active');
+  grecaptcha.execute('6Lcs0-cUAAAAAIYIBZ8LbZg_uGGkYXnTZ1J3m5Kf', {action: 'homepage'})
+    .then((token) => {
+      submittedData.recaptchaToken = token;
+      fetch('https://p40.laywagif.com/api/preorders', {
+        method: 'post',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submittedData),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          submitBtn.classList.remove('btn-spinner');
+          document.querySelector('#userInfoForm').reset();
+          if (res.success) {
+            preOrderPhoneSection.classList.remove('second-step');
+            preOrderPhoneSection.classList.add('congrats');
+            document.querySelector('.alert-err-msg').classList.remove('show');
+          } else {
+            // Show alert error message and desActive submit-btn
+            console.log(res);
+            document.querySelector('.alert-err-msg').classList.add('show');
+            submitBtn.setAttribute('disabled', '');
+            submitBtn.classList.remove('active');
+          }
+        })
+        .catch((e) => {
+          console.log(e);
+          // Show alert error message and desActive submit-btn
+          submitBtn.classList.remove('btn-spinner');
+          document.querySelector('.alert-err-msg').classList.add('show');
+          submitBtn.setAttribute('disabled', '');
+          submitBtn.classList.remove('active');
+        });
     });
 }
 
